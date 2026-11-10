@@ -38,7 +38,7 @@ namespace GestionCegepMobile.Adapteurs
             View view =
                 (convertView ??
                     context.LayoutInflater.Inflate(
-                        Resource.Id.ListeDepartementItem, parent, false)) as LinearLayout;
+                        Resource.Layout.ListeDepartementItem, parent, false)) as LinearLayout;
             view.FindViewById<TextView>(Resource.Id.tvNomDepartement).Text = listeDepartement[position].Nom;
 
             return view;

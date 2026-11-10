@@ -1,0 +1,14 @@
+# Visual Studio
+.VS/
+
+# Build folders
+GestionCegepMobile/bin/
+GestionCegepMobile/obj/
+
+# User files
+*.User
+*.suo
+
+# Android
+*.apk
+*.aab
