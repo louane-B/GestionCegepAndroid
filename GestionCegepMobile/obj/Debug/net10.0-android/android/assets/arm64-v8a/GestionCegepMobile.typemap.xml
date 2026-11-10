@@ -1,0 +1,14 @@
+<api type="debug" assembly-name="GestionCegepMobile" mvid="35a7afe502f34d79a3542e6bf0a1965e">
+  <java-to-managed>
+    <entry java-name="crc6455aba62fb05cca8b/CegepActivity" managed-name="GestionCegepMobile.Vues.CegepActivity, GestionCegepMobile" managed-type-token-id="33554436" />
+    <entry java-name="crc6455aba62fb05cca8b/CegepDetailsActivity" managed-name="GestionCegepMobile.Vues.CegepDetailsActivity, GestionCegepMobile" managed-type-token-id="33554437" />
+    <entry java-name="crc6455aba62fb05cca8b/CegepModifierActivity" managed-name="GestionCegepMobile.Vues.CegepModifierActivity, GestionCegepMobile" managed-type-token-id="33554438" />
+    <entry java-name="crc6477fd0bb6a6b3abe8/ListeCegepAdapter" managed-name="GestionCegepMobile.Adapteurs.ListeCegepAdapter, GestionCegepMobile" managed-type-token-id="33554457" />
+  </java-to-managed>
+  <managed-to-java>
+    <entry java-name="crc6455aba62fb05cca8b/CegepActivity" managed-name="GestionCegepMobile.Vues.CegepActivity, GestionCegepMobile" managed-type-token-id="33554436" />
+    <entry java-name="crc6455aba62fb05cca8b/CegepDetailsActivity" managed-name="GestionCegepMobile.Vues.CegepDetailsActivity, GestionCegepMobile" managed-type-token-id="33554437" />
+    <entry java-name="crc6455aba62fb05cca8b/CegepModifierActivity" managed-name="GestionCegepMobile.Vues.CegepModifierActivity, GestionCegepMobile" managed-type-token-id="33554438" />
+    <entry java-name="crc6477fd0bb6a6b3abe8/ListeCegepAdapter" managed-name="GestionCegepMobile.Adapteurs.ListeCegepAdapter, GestionCegepMobile" managed-type-token-id="33554457" />
+  </managed-to-java>
+</api>

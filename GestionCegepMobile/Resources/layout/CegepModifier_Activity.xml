@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ECEFF1">
+
+	<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+		android:layout_marginTop="100dp">
+
+		<!-- TITRE -->
+
+		<TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Modifier un cégep"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#1565C0"
+            android:layout_marginBottom="20dp" />
+
+		<!-- FORMULAIRE -->
+
+		<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:padding="16dp">
+
+			<TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Informations du cégep"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#263238"
+                android:layout_marginBottom="12dp" />
+
+			<!-- NOM (désactivé) -->
+
+			<EditText
+                android:id="@+id/edtNomModifier"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nom"
+                android:enabled="false"
+                android:padding="12dp"
+                android:background="#F5F5F5"
+                android:layout_marginBottom="12dp" />
+
+			<!-- ADRESSE -->
+
+			<EditText
+                android:id="@+id/edtAdresseModifier"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Adresse"
+                android:padding="12dp"
+                android:background="#F5F5F5"
+                android:layout_marginBottom="12dp" />
+
+			<!-- VILLE -->
+
+			<EditText
+                android:id="@+id/edtVilleModifier"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ville"
+                android:padding="12dp"
+                android:background="#F5F5F5"
+                android:layout_marginBottom="12dp" />
+
+			<!-- PROVINCE -->
+
+			<EditText
+                android:id="@+id/edtProvinceModifier"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Province"
+                android:padding="12dp"
+                android:background="#F5F5F5"
+                android:layout_marginBottom="12dp" />
+
+			<!-- CODE POSTAL -->
+
+			<EditText
+                android:id="@+id/edtCodePostalModifier"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Code postal"
+                android:padding="12dp"
+                android:background="#F5F5F5"
+                android:layout_marginBottom="12dp" />
+
+			<!-- TÉLÉPHONE -->
+
+			<EditText
+                android:id="@+id/edtTelephoneModifier"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Téléphone"
+                android:inputType="phone"
+                android:padding="12dp"
+                android:background="#F5F5F5"
+                android:layout_marginBottom="12dp" />
+
+			<!-- COURRIEL -->
+
+			<EditText
+                android:id="@+id/edtCourrielModifier"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Courriel"
+                android:inputType="textEmailAddress"
+                android:padding="12dp"
+                android:background="#F5F5F5"
+                android:layout_marginBottom="20dp" />
+
+			<!-- BOUTON -->
+
+			<Button
+                android:id="@+id/btnModifier"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="MODIFIER"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="#ffc107"
+                android:padding="14dp" />
+
+		</LinearLayout>
+
+	</LinearLayout>
+
+</ScrollView>

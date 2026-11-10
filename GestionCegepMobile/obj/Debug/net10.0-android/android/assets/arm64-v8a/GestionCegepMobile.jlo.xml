@@ -1,0 +1,54 @@
+<api>
+  <jcw-types>
+    <type name="CegepActivity" package="crc6455aba62fb05cca8b" application_java_class="android.app.Application" mono_runtime_initialization="mono.MonoPackageManager.LoadApplication (context);" extends_type="android.app.Activity" partial_assembly_qualified_name="GestionCegepMobile.Vues.CegepActivity, GestionCegepMobile">
+      <constructors>
+        <constructor name="CegepActivity" method="n_.ctor:()V:" jni_signature="()V" managed_parameters="" retval="void" is_dynamically_registered="True" />
+      </constructors>
+      <methods>
+        <method name="onCreate" method="n_onCreate:(Landroid/os/Bundle;)V:GetOnCreate_Landroid_os_Bundle_Handler" jni_signature="(Landroid/os/Bundle;)V" params="android.os.Bundle p0" retval="void" is_dynamically_registered="True" super_call="p0" activate_call="p0" />
+        <method name="onResume" method="n_onResume:()V:GetOnResumeHandler" jni_signature="()V" retval="void" is_dynamically_registered="True" />
+        <method name="onCreateOptionsMenu" method="n_onCreateOptionsMenu:(Landroid/view/Menu;)Z:GetOnCreateOptionsMenu_Landroid_view_Menu_Handler" jni_signature="(Landroid/view/Menu;)Z" params="android.view.Menu p0" retval="boolean" is_dynamically_registered="True" super_call="p0" activate_call="p0" />
+        <method name="onOptionsItemSelected" method="n_onOptionsItemSelected:(Landroid/view/MenuItem;)Z:GetOnOptionsItemSelected_Landroid_view_MenuItem_Handler" jni_signature="(Landroid/view/MenuItem;)Z" params="android.view.MenuItem p0" retval="boolean" is_dynamically_registered="True" super_call="p0" activate_call="p0" />
+      </methods>
+    </type>
+    <type name="CegepDetailsActivity" package="crc6455aba62fb05cca8b" application_java_class="android.app.Application" mono_runtime_initialization="mono.MonoPackageManager.LoadApplication (context);" extends_type="android.app.Activity" partial_assembly_qualified_name="GestionCegepMobile.Vues.CegepDetailsActivity, GestionCegepMobile">
+      <constructors>
+        <constructor name="CegepDetailsActivity" method="n_.ctor:()V:" jni_signature="()V" managed_parameters="" retval="void" is_dynamically_registered="True" />
+      </constructors>
+      <methods>
+        <method name="onCreate" method="n_onCreate:(Landroid/os/Bundle;)V:GetOnCreate_Landroid_os_Bundle_Handler" jni_signature="(Landroid/os/Bundle;)V" params="android.os.Bundle p0" retval="void" is_dynamically_registered="True" super_call="p0" activate_call="p0" />
+        <method name="onResume" method="n_onResume:()V:GetOnResumeHandler" jni_signature="()V" retval="void" is_dynamically_registered="True" />
+        <method name="onCreateOptionsMenu" method="n_onCreateOptionsMenu:(Landroid/view/Menu;)Z:GetOnCreateOptionsMenu_Landroid_view_Menu_Handler" jni_signature="(Landroid/view/Menu;)Z" params="android.view.Menu p0" retval="boolean" is_dynamically_registered="True" super_call="p0" activate_call="p0" />
+        <method name="onOptionsItemSelected" method="n_onOptionsItemSelected:(Landroid/view/MenuItem;)Z:GetOnOptionsItemSelected_Landroid_view_MenuItem_Handler" jni_signature="(Landroid/view/MenuItem;)Z" params="android.view.MenuItem p0" retval="boolean" is_dynamically_registered="True" super_call="p0" activate_call="p0" />
+      </methods>
+    </type>
+    <type name="CegepModifierActivity" package="crc6455aba62fb05cca8b" application_java_class="android.app.Application" mono_runtime_initialization="mono.MonoPackageManager.LoadApplication (context);" extends_type="android.app.Activity" partial_assembly_qualified_name="GestionCegepMobile.Vues.CegepModifierActivity, GestionCegepMobile">
+      <constructors>
+        <constructor name="CegepModifierActivity" method="n_.ctor:()V:" jni_signature="()V" managed_parameters="" retval="void" is_dynamically_registered="True" />
+      </constructors>
+      <methods>
+        <method name="onCreate" method="n_onCreate:(Landroid/os/Bundle;)V:GetOnCreate_Landroid_os_Bundle_Handler" jni_signature="(Landroid/os/Bundle;)V" params="android.os.Bundle p0" retval="void" is_dynamically_registered="True" super_call="p0" activate_call="p0" />
+        <method name="onResume" method="n_onResume:()V:GetOnResumeHandler" jni_signature="()V" retval="void" is_dynamically_registered="True" />
+        <method name="onCreateOptionsMenu" method="n_onCreateOptionsMenu:(Landroid/view/Menu;)Z:GetOnCreateOptionsMenu_Landroid_view_Menu_Handler" jni_signature="(Landroid/view/Menu;)Z" params="android.view.Menu p0" retval="boolean" is_dynamically_registered="True" super_call="p0" activate_call="p0" />
+        <method name="onOptionsItemSelected" method="n_onOptionsItemSelected:(Landroid/view/MenuItem;)Z:GetOnOptionsItemSelected_Landroid_view_MenuItem_Handler" jni_signature="(Landroid/view/MenuItem;)Z" params="android.view.MenuItem p0" retval="boolean" is_dynamically_registered="True" super_call="p0" activate_call="p0" />
+      </methods>
+    </type>
+    <type name="ListeCegepAdapter" package="crc6477fd0bb6a6b3abe8" application_java_class="android.app.Application" mono_runtime_initialization="mono.MonoPackageManager.LoadApplication (context);" extends_type="android.widget.BaseAdapter" partial_assembly_qualified_name="GestionCegepMobile.Adapteurs.ListeCegepAdapter, GestionCegepMobile">
+      <constructors>
+        <constructor name="ListeCegepAdapter" method="n_.ctor:()V:" jni_signature="()V" managed_parameters="" retval="void" is_dynamically_registered="True" />
+      </constructors>
+      <methods>
+        <method name="getItem" method="n_getItem:(I)Ljava/lang/Object;:GetGetItem_IHandler" jni_signature="(I)Ljava/lang/Object;" params="int p0" retval="java.lang.Object" is_dynamically_registered="True" super_call="p0" activate_call="p0" />
+        <method name="getItemId" method="n_getItemId:(I)J:GetGetItemId_IHandler" jni_signature="(I)J" params="int p0" retval="long" is_dynamically_registered="True" super_call="p0" activate_call="p0" />
+        <method name="getCount" method="n_getCount:()I:GetGetCountHandler" jni_signature="()I" retval="int" is_dynamically_registered="True" />
+        <method name="getView" method="n_getView:(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;:GetGetView_ILandroid_view_View_Landroid_view_ViewGroup_Handler" jni_signature="(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;" params="int p0, android.view.View p1, android.view.ViewGroup p2" retval="android.view.View" is_dynamically_registered="True" super_call="p0, p1, p2" activate_call="p0, p1, p2" />
+      </methods>
+    </type>
+  </jcw-types>
+  <acw-types partial-assembly-name="GestionCegepMobile" module-name="GestionCegepMobile.dll">
+    <type assembly-qualified-name="GestionCegepMobile.Vues.CegepActivity, GestionCegepMobile, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" compat-jni-name="gestioncegepmobile.vues.CegepActivity" java-key="crc6455aba62fb05cca8b.CegepActivity" managed-key="GestionCegepMobile.Vues.CegepActivity" partial-assembly-qualified-name="GestionCegepMobile.Vues.CegepActivity, GestionCegepMobile" />
+    <type assembly-qualified-name="GestionCegepMobile.Vues.CegepDetailsActivity, GestionCegepMobile, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" compat-jni-name="gestioncegepmobile.vues.CegepDetailsActivity" java-key="crc6455aba62fb05cca8b.CegepDetailsActivity" managed-key="GestionCegepMobile.Vues.CegepDetailsActivity" partial-assembly-qualified-name="GestionCegepMobile.Vues.CegepDetailsActivity, GestionCegepMobile" />
+    <type assembly-qualified-name="GestionCegepMobile.Vues.CegepModifierActivity, GestionCegepMobile, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" compat-jni-name="gestioncegepmobile.vues.CegepModifierActivity" java-key="crc6455aba62fb05cca8b.CegepModifierActivity" managed-key="GestionCegepMobile.Vues.CegepModifierActivity" partial-assembly-qualified-name="GestionCegepMobile.Vues.CegepModifierActivity, GestionCegepMobile" />
+    <type assembly-qualified-name="GestionCegepMobile.Adapteurs.ListeCegepAdapter, GestionCegepMobile, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" compat-jni-name="gestioncegepmobile.adapteurs.ListeCegepAdapter" java-key="crc6477fd0bb6a6b3abe8.ListeCegepAdapter" managed-key="GestionCegepMobile.Adapteurs.ListeCegepAdapter" partial-assembly-qualified-name="GestionCegepMobile.Adapteurs.ListeCegepAdapter, GestionCegepMobile" />
+  </acw-types>
+</api>

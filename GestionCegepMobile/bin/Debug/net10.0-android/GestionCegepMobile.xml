@@ -1,0 +1,1740 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GestionCegepMobile</name>
+    </assembly>
+    <members>
+        <member name="T:GestionCegepMobile.Adapteurs.ListeCegepAdapter">
+            <summary>
+            Classe représentant un adapteur pour une liste de Cégep(s).
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Adapteurs.ListeCegepAdapter.context">
+            <summary>
+            Attribut représetant le contexte.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Adapteurs.ListeCegepAdapter.listeCegep">
+            <summary>
+            Attribut représentant la liste de Cegeps.
+            </summary>
+        </member>
+        <member name="M:GestionCegepMobile.Adapteurs.ListeCegepAdapter.#ctor(Android.App.Activity,GestionCegepMobile.DTOs.CegepDTO[])">
+            <summary>
+            Constructeur de la classe. 
+            </summary>
+            <param name="context">Contexte.</param>
+            <param name="acteurs">Liste des Cégeps.</param>
+        </member>
+        <member name="P:GestionCegepMobile.Adapteurs.ListeCegepAdapter.Item(System.Int32)">
+            <summary>
+            Méthode réécrite de la classe BaseAdapter permettant d'accéder à un élément de la liste de Cégeps selon un index.
+            </summary>
+            <param name="index">Index de la garderie.</param>
+            <returns>Retourne un CegepDTO contenant les informations du Cégep selon l'index passé en paramètre.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Adapteurs.ListeCegepAdapter.GetItemId(System.Int32)">
+            <summary>
+            Méthode réécrite de la classe BaseAdapter permettant d'obtenir le Id d'un Cégep selon une position.
+            </summary>
+            <param name="position">Position du Cégep.</param>
+            <returns>Retourne le ID du Cégep à la position demandée.</returns>
+        </member>
+        <member name="P:GestionCegepMobile.Adapteurs.ListeCegepAdapter.Count">
+            <summary>
+            Méthode réécrite de la classe BaseAdapter permettant d'obtenir le nombre de Cégep(s) dans la liste.
+            </summary>
+            <returns>Retourne le nombre de Cégep(s) dans la liste.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Adapteurs.ListeCegepAdapter.GetView(System.Int32,Android.Views.View,Android.Views.ViewGroup)">
+            <summary>
+            Méthode réécrite de la classe BaseAdapter permettant d'obtenir le visuel d'un Cégep.
+            </summary>
+            <param name="position">Position du Cégep.</param>
+            <param name="convertView">Vue.</param>
+            <param name="parent">Parent de la vue.</param>
+            <returns>Retourne une vue construite avec les données d'un Cégep.</returns>
+        </member>
+        <member name="T:GestionCegepMobile.Controleurs.CegepControleur">
+            <summary>
+            Classe représentant le controleur de l'application.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Controleurs.CegepControleur.instance">
+            <summary>
+            Attribut représentant l'instance unique de la classe CegepControleur.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.Controleurs.CegepControleur.Instance">
+            <summary>
+            Propriété permettant d'accèder à l'instance unique de la classe.
+            </summary>
+        </member>
+        <member name="M:GestionCegepMobile.Controleurs.CegepControleur.#ctor">
+            <summary>
+            Constructeur par défaut de la classe.
+            </summary>
+        </member>
+        <member name="M:GestionCegepMobile.Controleurs.CegepControleur.ObtenirListeCegep">
+            <summary>
+            Méthode de service permettant d'obtenir la liste des départements.
+            </summary>
+            <returns>Liste contenant les département.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Controleurs.CegepControleur.ObtenirCegep(System.String)">
+            <summary>
+            Méthode de service permettant d'obtenir le Cégep.
+            </summary>
+            <param name="nom">Le nom du Cégep.</param>
+            <returns>Le DTO du Cégep.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Controleurs.CegepControleur.AjouterCegep(GestionCegepMobile.DTOs.CegepDTO)">
+            <summary>
+            Méthode de service permettant de créer le Cégep.
+            </summary>
+            <param name="cegep">Le DTO du Cégep.</param>
+        </member>
+        <member name="M:GestionCegepMobile.Controleurs.CegepControleur.ModifierCegep(GestionCegepMobile.DTOs.CegepDTO)">
+            <summary>
+            Méthode de service permettant de modifier le Cégep.
+            </summary>
+            <param name="cegep">Le DTO du Cégep.</param>
+        </member>
+        <member name="M:GestionCegepMobile.Controleurs.CegepControleur.SupprimerCegep(System.String)">
+            <summary>
+            Méthode de service permettant de supprimer le Cégep.
+            </summary>
+            <param name="cegep">Le nom du Cégep.</param>
+            <returns>True si supprimé, False sinon...</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Controleurs.CegepControleur.ObtenirListeDepartement(System.String)">
+            <summary>
+            Méthode de service permettant d'obtenir la liste des départements.
+            </summary>
+            <param name="nomCegep">Le nom du Cégep.</param>
+            <returns>Liste contenant les département.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Controleurs.CegepControleur.ObtenirDepartement(System.String,System.String)">
+            <summary>
+            Méthode de service permettant d'obtenir un département.
+            </summary>
+            <param name="departement">Le DTO du département désiré. (Informations du Equals nécessaires)</param>
+            <returns>Le DTO du département désiré.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Controleurs.CegepControleur.AjouterDepartement(System.String,GestionCegepMobile.DTOs.DepartementDTO)">
+            <summary>
+            Méthode de service permettant d'ajouter un département.
+            </summary>
+            <param name="nomCegep">Le nom du Cégep.</param>
+            <param name="departement">Le DTO du département a ajouter.</param>
+        </member>
+        <member name="M:GestionCegepMobile.Controleurs.CegepControleur.SupprimerDepartement(System.String,System.String)">
+            <summary>
+            Méthode de service permettant de supprimer un département.
+            </summary>
+            <param name="nomCegep">Le nom du Cégep.</param> 
+            <param name="departement">Le DTO du département a supprimer.</param>
+        </member>
+        <member name="M:GestionCegepMobile.Controleurs.CegepControleur.ObtenirListeEnseignant(System.String,System.String)">
+            <summary>
+            Méthode de service permettant d'obtenir la liste des enseignants.
+            </summary>
+            <param name="departement">Le DTO du département désiré.</param>
+            <returns>Liste des enseignants.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Controleurs.CegepControleur.ObtenirEnseignant(System.String,System.String,GestionCegepMobile.DTOs.EnseignantDTO)">
+            <summary>
+            Méthode de service permettant d'obtenir un enseignant.
+            </summary>
+            <param name="departement">Le DTO du département de l'enseignant.</param>
+            <param name="enseignant">Le DTO de l'enseignant désiré.</param>
+            <returns>Le DTO de l'enseignant désiré.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Controleurs.CegepControleur.AjouterEnseignant(System.String,System.String,GestionCegepMobile.DTOs.EnseignantDTO)">
+            <summary>
+            Méthode de service permettant d'ajouter un enseignant dans un département.
+            </summary>
+            <param name="departement">Le DTO du département dans lequel ajouter l'enseignant.</param>
+            <param name="enseignant">Le DTO de l'enseignant à ajouter.</param>
+        </member>
+        <member name="M:GestionCegepMobile.Controleurs.CegepControleur.ModifierEnseignant(System.String,System.String,GestionCegepMobile.DTOs.EnseignantDTO)">
+            <summary>
+            Méthode de service permettant de modifier un enseignant.
+            </summary>
+            <param name="departement">Le DTO du département de l'enseignant.</param>
+            <param name="enseignant">Le DTO de l'enseignant a modifier.</param>
+        </member>
+        <member name="M:GestionCegepMobile.Controleurs.CegepControleur.SupprimerEnseignant(System.String,System.String,GestionCegepMobile.DTOs.EnseignantDTO)">
+            <summary>
+            Méthode de service permettant de supprimer un enseignant.
+            </summary>
+            <param name="departement">Le DTO du département de l'enseignant.</param>
+            <param name="enseignant">Le DTO de l'enseignant a supprimer.</param>
+        </member>
+        <member name="M:GestionCegepMobile.Controleurs.CegepControleur.ObtenirListeCours(System.String,System.String)">
+            <summary>
+            Méthode de service permettant d'obtenir la liste des cours.
+            </summary>
+            <param name="departement">Le DTO du département désiré.</param>
+            <returns>Liste des cours.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Controleurs.CegepControleur.ObtenirCours(System.String,System.String,GestionCegepMobile.DTOs.CoursDTO)">
+            <summary>
+            Méthode de service permettant d'obtenir un cours.
+            </summary>
+            <param name="departement">Le DTO du département du cours.</param>
+            <param name="enseignant">Le DTO du cours désiré.</param>
+            <returns>Le DTO complet du cours désiré.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Controleurs.CegepControleur.AjouterCours(System.String,System.String,GestionCegepMobile.DTOs.CoursDTO)">
+            <summary>
+            Méthode de service permettant d'ajouter un cours dans un département.
+            </summary>
+            <param name="departement">Le DTO du département dans lequel ajouter l'enseignant.</param>
+            <param name="cours">Le DTO du cours à ajouter.</param>
+        </member>
+        <member name="M:GestionCegepMobile.Controleurs.CegepControleur.ModifierCours(System.String,System.String,GestionCegepMobile.DTOs.CoursDTO)">
+            <summary>
+            Méthode de service permettant de modifier un cours.
+            </summary>
+            <param name="departement">Le DTO du département de l'enseignant.</param>
+            <param name="cours">Le DTO du cours a modifier.</param>
+        </member>
+        <member name="M:GestionCegepMobile.Controleurs.CegepControleur.SupprimerCours(System.String,System.String,GestionCegepMobile.DTOs.CoursDTO)">
+            <summary>
+            Méthode de service permettant de supprimer un cours.
+            </summary>
+            <param name="departement">Le DTO du département du cours.</param>
+            <param name="cours">Le DTO du cours a supprimer.</param>
+        </member>
+        <member name="T:GestionCegepMobile.DAOs.CegepRepository">
+            <summary>
+            Classe représentant le répository d'un cégep.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.DAOs.CegepRepository.instance">
+            <summary>
+            Instance unique du repository.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.DAOs.CegepRepository.Instance">
+            <summary>
+            Propriété permettant d'accèder à l'instance unique de la classe.
+            </summary>
+        </member>
+        <member name="M:GestionCegepMobile.DAOs.CegepRepository.#ctor">
+            <summary>
+            Constructeur privée du repository.
+            </summary>
+        </member>
+        <member name="M:GestionCegepMobile.DAOs.CegepRepository.ObtenirIdCegep(System.String)">
+            <summary>
+            Méthode de service permettant d'obtenir le ID d'un cégep selon ses informatiques uniques.
+            </summary>
+            <param name="nom">Le titre du Cégep.</param>
+            <returns>Le ID du Cégep.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.DAOs.CegepRepository.ObtenirListeCegep">
+            <summary>
+            Méthode de service permettant d'obtenir la liste des départements d'un Cégep.
+            </summary>
+            <returns>Liste des départements.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.DAOs.CegepRepository.ObtenirCegep(System.String)">
+            <summary>
+            Méthode de service permettant d'obtenir un Cégep selon ses informations uniques.
+            </summary>
+            <param name="nom">Nom du Cégep.</param>
+            <returns>Le DTO du Cégep.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.DAOs.CegepRepository.AjouterCegep(GestionCegepMobile.DTOs.CegepDTO)">
+            <summary>
+            Méthode de service permettant d'ajouter un Cégep.
+            </summary>
+            <param name="cegepDTO">Le DTO du cegep.</param>
+        </member>
+        <member name="M:GestionCegepMobile.DAOs.CegepRepository.ModifierCegep(GestionCegepMobile.DTOs.CegepDTO)">
+            <summary>
+            Méthode de service permettant de modifier un Cégep.
+            </summary>
+            <param name="cegepDTO">Le DTO du Cégep.</param>
+        </member>
+        <member name="M:GestionCegepMobile.DAOs.CegepRepository.SupprimerCegep(GestionCegepMobile.DTOs.CegepDTO)">
+            <summary>
+            Méthode de service permettant de supprimer un Cégep.
+            </summary>
+            <param name="cegepDTO">Le DTO du Cégep.</param>
+        </member>
+        <member name="T:GestionCegepMobile.DAOs.CoursRepository">
+            <summary>
+            Classe représentant le répository d'un cours.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.DAOs.CoursRepository.instance">
+            <summary>
+            Instance unique du repository.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.DAOs.CoursRepository.Instance">
+            <summary>
+            Propriété permettant d'accèder à l'instance unique de la classe.
+            </summary>
+        </member>
+        <member name="M:GestionCegepMobile.DAOs.CoursRepository.#ctor">
+            <summary>
+            Constructeur privée du repository.
+            </summary>
+        </member>
+        <member name="M:GestionCegepMobile.DAOs.CoursRepository.ObtenirIdCours(System.String,System.String,System.String)">
+            <summary>
+            Méthode de service permettant d'obtenir le ID d'un cours selon ses informatiques uniques.
+            </summary>
+            <param name="nomCegep">Le nom du Cégep.</param>
+            <param name="nomDepartement">Le nom du Département.</param>
+            <param name="nomCours">Le nom du cours.</param>
+            <returns>Le ID du cours.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.DAOs.CoursRepository.ObtenirListeCours(System.String,System.String)">
+            <summary>
+            Méthode de service permettant d'obtenir la liste des cours d'un département.
+            </summary>
+            <param name="nomCegep">Le nom du Cégep.</param>
+            <param name="nomDepartement">Le nom du département.</param>
+            <returns>Liste des cours.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.DAOs.CoursRepository.ObtenirCours(System.String,System.String,System.String)">
+            <summary>
+            Méthode de service permettant d'obtenir un cours selon ses informations uniques.
+            </summary>
+            <param name="nomCegep">Nom du Cégep.</param>
+            <param name="nomCegep">Nom du département.</param>
+            <param name="noEmploye">Nom du cours.</param>
+            <returns>Le DTO du cours.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.DAOs.CoursRepository.AjouterCours(System.String,System.String,GestionCegepMobile.DTOs.CoursDTO)">
+            <summary>
+            Méthode de service permettant d'ajouter un cours.
+            </summary>
+            <param name="nomCegep">Le nom du Cégep.</param>
+            <param name="nomDepartement">Le nom du departement.</param>
+            <param name="coursDTO">Le DTO du cours.</param>
+        </member>
+        <member name="M:GestionCegepMobile.DAOs.CoursRepository.ModifierCours(System.String,System.String,GestionCegepMobile.DTOs.CoursDTO)">
+            <summary>
+            Méthode de service permettant de modifier un cours.
+            </summary>
+            <param name="nomCegep">Le nom du Cégep.</param>
+            <param name="nomDepartement">Le nom du département.</param>
+            <param name="coursDTO">Le DTO du cours.</param>
+        </member>
+        <member name="M:GestionCegepMobile.DAOs.CoursRepository.SupprimerCours(System.String,System.String,GestionCegepMobile.DTOs.CoursDTO)">
+            <summary>
+            Méthode de service permettant de supprimer un cours.
+            </summary>
+            <param name="nomCegep">Le nom du Cégep.</param>
+            <param name="nomDepartement">Le nom du département.</param>
+            <param name="coursDTO">Le DTO du cours.</param>
+        </member>
+        <member name="T:GestionCegepMobile.DAOs.DepartementRepository">
+            <summary>
+            Classe représentant le répository d'un département.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.DAOs.DepartementRepository.instance">
+            <summary>
+            Instance unique du repository.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.DAOs.DepartementRepository.Instance">
+            <summary>
+            Propriété permettant d'accèder à l'instance unique de la classe.
+            </summary>
+        </member>
+        <member name="M:GestionCegepMobile.DAOs.DepartementRepository.#ctor">
+            <summary>
+            Constructeur privée du repository.
+            </summary>
+        </member>
+        <member name="M:GestionCegepMobile.DAOs.DepartementRepository.ObtenirIdDepartement(System.String,System.String)">
+            <summary>
+            Méthode de service permettant d'obtenir le ID d'un département selon ses informatiques uniques.
+            </summary>
+            <param name="nomCegep">Le nom du Cégep.</param>
+            <param name="nomDepartement">Le nom du Cégep.</param>
+            <returns>Le ID du département.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.DAOs.DepartementRepository.ObtenirListeDepartement(System.String)">
+            <summary>
+            Méthode de service permettant d'obtenir la liste des départements d'un Cégep.
+            </summary>
+            <param name="nomCegep">Le nom du Cégep.</param>
+            <returns>Liste des départements.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.DAOs.DepartementRepository.ObtenirDepartement(System.String,System.String)">
+            <summary>
+            Méthode de service permettant d'obtenir un département selon ses informations uniques.
+            </summary>
+            <param name="nomCegep">Nom du Cégep.</param>
+            <param name="nomCegep">Nom du département.</param>
+            <returns>Le DTO du département.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.DAOs.DepartementRepository.AjouterDepartement(System.String,GestionCegepMobile.DTOs.DepartementDTO)">
+            <summary>
+            Méthode de service permettant d'ajouter un département.
+            </summary>
+            <param name="nomCegep">Le nom du Cégep.</param>
+            <param name="departementDTO">Le DTO du departement.</param>
+        </member>
+        <member name="M:GestionCegepMobile.DAOs.DepartementRepository.ModifierDepartement(System.String,GestionCegepMobile.DTOs.DepartementDTO)">
+            <summary>
+            Méthode de service permettant de modifier un département.
+            </summary>
+            <param name="nomCegep">Le nom du Cégep.</param>
+            <param name="departementDTO">Le DTO du département.</param>
+        </member>
+        <member name="M:GestionCegepMobile.DAOs.DepartementRepository.SupprimerDepartement(System.String,GestionCegepMobile.DTOs.DepartementDTO)">
+            <summary>
+            Méthode de service permettant de supprimer un département.
+            </summary>
+            <param name="nomCegep">Le nom du Cégep.</param>
+            <param name="departementDTO">Le DTO du département.</param>
+        </member>
+        <member name="T:GestionCegepMobile.DAOs.EnseignantRepository">
+            <summary>
+            Classe représentant le répository d'un enseignant.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.DAOs.EnseignantRepository.instance">
+            <summary>
+            Instance unique du repository.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.DAOs.EnseignantRepository.Instance">
+            <summary>
+            Propriété permettant d'accèder à l'instance unique de la classe.
+            </summary>
+        </member>
+        <member name="M:GestionCegepMobile.DAOs.EnseignantRepository.#ctor">
+            <summary>
+            Constructeur privée du repository.
+            </summary>
+        </member>
+        <member name="M:GestionCegepMobile.DAOs.EnseignantRepository.ObtenirIdEnseignant(System.String,System.String,System.Int32)">
+            <summary>
+            Méthode de service permettant d'obtenir le ID d'un enseignant selon ses informatiques uniques.
+            </summary>
+            <param name="nomCegep">Le nom du Cégep.</param>
+            <param name="nomDepartement">Le nom du département.</param>
+            <param name="noEmploye">Le numéro de l'employé.</param>
+            <returns>Le ID de l'enseignant.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.DAOs.EnseignantRepository.ObtenirListeEnseignant(System.String,System.String)">
+            <summary>
+            Méthode de service permettant d'obtenir la liste des enseignants d'un département.
+            </summary>
+            <param name="nomCegep">Le nom du Cégep.</param>
+            <param name="nomDepartement">Le nom du département.</param>
+            <returns>Liste des départements.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.DAOs.EnseignantRepository.ObtenirEnseignant(System.String,System.String,System.Int32)">
+            <summary>
+            Méthode de service permettant d'obtenir un enseignant selon ses informations uniques.
+            </summary>
+            <param name="nomCegep">Nom du Cégep.</param>
+            <param name="nomCegep">Nom du département.</param>
+            <param name="noEmploye">No de l'employé.</param>
+            <returns>Le DTO de l'enseignant.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.DAOs.EnseignantRepository.AjouterEnseignant(System.String,System.String,GestionCegepMobile.DTOs.EnseignantDTO)">
+            <summary>
+            Méthode de service permettant d'ajouter un enseignant.
+            </summary>
+            <param name="nomCegep">Le nom du Cégep.</param>
+            <param name="nomDepartement">Le nom du departement.</param>
+            <param name="enseignantDTO">Le DTO de l'enseignant.</param>
+        </member>
+        <member name="M:GestionCegepMobile.DAOs.EnseignantRepository.ModifierEnseignant(System.String,System.String,GestionCegepMobile.DTOs.EnseignantDTO)">
+            <summary>
+            Méthode de service permettant de modifier un enseignant.
+            </summary>
+            <param name="nomCegep">Le nom du Cégep.</param>
+            <param name="nomDepartement">Le nom du département.</param>
+            <param name="enseignantDTO">Le DTO de l'enseignant.</param>
+        </member>
+        <member name="M:GestionCegepMobile.DAOs.EnseignantRepository.SupprimerEnseignant(System.String,System.String,GestionCegepMobile.DTOs.EnseignantDTO)">
+            <summary>
+            Méthode de service permettant de supprimer un enseignant.
+            </summary>
+            <param name="nomCegep">Le nom du Cégep.</param>
+            <param name="nomDepartement">Le nom du département.</param>
+            <param name="enseignantDTODTO">Le DTO de l'enseignant.</param>
+        </member>
+        <member name="T:GestionCegepMobile.DAOs.Repository">
+            <summary>
+            Classe représentant un repository.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.DAOs.Repository.connexion">
+            <summary>
+            La connexion.
+            </summary>
+        </member>
+        <member name="M:GestionCegepMobile.DAOs.Repository.#ctor">
+            <summary>
+            Constructeur de la classe.
+            </summary>
+        </member>
+        <member name="M:GestionCegepMobile.DAOs.Repository.OuvrirConnexion">
+            <summary>
+            Méthode permettant d'ouvrir la connexion.
+            </summary>
+        </member>
+        <member name="M:GestionCegepMobile.DAOs.Repository.FermerConnexion">
+            <summary>
+            Méthode permettant de fermer la connexion.
+            </summary>
+        </member>
+        <member name="T:GestionCegepMobile.DTOs.CegepDTO">
+            <summary>
+            Classe de DTO pour le Cégep.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.DTOs.CegepDTO.Nom">
+            <summary>
+            Propriété représentant le nom du Cégep.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.DTOs.CegepDTO.Adresse">
+            <summary>
+            Propriété représentant l'adresse du Cégep.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.DTOs.CegepDTO.Ville">
+            <summary>
+            Propriété représentant la ville du Cégep.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.DTOs.CegepDTO.Province">
+            <summary>
+            Propriété représentant la province du Cégep.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.DTOs.CegepDTO.CodePostal">
+            <summary>
+            Propriété représentant le code postal du Cégep.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.DTOs.CegepDTO.Telephone">
+            <summary>
+            Propriété représenant le téléphone du Cégep.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.DTOs.CegepDTO.Courriel">
+            <summary>
+            Propriété représentant le courriel du Cégep.
+            </summary>
+        </member>
+        <member name="M:GestionCegepMobile.DTOs.CegepDTO.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Constructeur avec paramètres.
+            </summary>
+            <param name="nom">Nom du Cégep.</param>
+            <param name="adresse">Adresse du Cégep.</param>
+            <param name="ville">Ville du Cégep.</param>
+            <param name="province">Province du Cégep.</param>
+            <param name="codePostal">Code postal du Cégep.</param>
+            <param name="telephone">Téléphone du Cégep.</param>
+            <param name="courriel">Courriel du Cégep.</param>
+        </member>
+        <member name="M:GestionCegepMobile.DTOs.CegepDTO.#ctor(GestionCegepMobile.Modeles.Cegep)">
+            <summary>
+            Constructeur avec le modèle Cegep en paramètre.
+            </summary>
+            <param name="leCegep">L'objet du modèle Cegep.</param>
+        </member>
+        <member name="T:GestionCegepMobile.DTOs.CoursDTO">
+            <summary>
+            Classe de DTO pour le cours.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.DTOs.CoursDTO.No">
+            <summary>
+            Propriété représentant le no du cours.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.DTOs.CoursDTO.Nom">
+            <summary>
+            Propriété représentant le nom du cours.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.DTOs.CoursDTO.Description">
+            <summary>
+            Propriété représentant la description du cours.
+            </summary>
+        </member>
+        <member name="M:GestionCegepMobile.DTOs.CoursDTO.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Constructeur avec paramètres.
+            </summary>
+            <param name="no">No du cours.</param>
+            <param name="nom">Nom du cours.</param>
+            <param name="description">Description du cours.</param>
+        </member>
+        <member name="M:GestionCegepMobile.DTOs.CoursDTO.#ctor(GestionCegepMobile.Modeles.Cours)">
+            <summary>
+            Constructeur avec le modèle Cours en paramètre.
+            </summary>
+            <param name="leCours">L'objet du modèle Cours.</param>
+        </member>
+        <member name="T:GestionCegepMobile.DTOs.DepartementDTO">
+            <summary>
+            Classe de DTO pour un département.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.DTOs.DepartementDTO.No">
+            <summary>
+            Propriété représentant le numéro du département.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.DTOs.DepartementDTO.Nom">
+            <summary>
+            Propriété représentant le nom du département.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.DTOs.DepartementDTO.Description">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:GestionCegepMobile.DTOs.DepartementDTO.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Constructeur avec paramètres.
+            </summary>
+            <param name="no">Le numéro du département.</param>
+            <param name="nom">Le nom du département.</param>
+            <param name="description">La description du département.</param>
+        </member>
+        <member name="M:GestionCegepMobile.DTOs.DepartementDTO.#ctor(GestionCegepMobile.Modeles.Departement)">
+            <summary>
+            Constructeur avec un modèle.
+            </summary>
+            <param name="leDepartement">Le modèle du département.</param>
+        </member>
+        <member name="T:GestionCegepMobile.DTOs.EnseignantDTO">
+            <summary>
+            Classe de DTO pour un enseignant.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.DTOs.EnseignantDTO.NoEmploye">
+            <summary>
+            No de l'enseignant.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.DTOs.EnseignantDTO.Nom">
+            <summary>
+            Nom de l'enseignant.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.DTOs.EnseignantDTO.Prenom">
+            <summary>
+            Prénom de l'enseignant.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.DTOs.EnseignantDTO.Adresse">
+            <summary>
+            Adresse de l'enseignant.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.DTOs.EnseignantDTO.Ville">
+            <summary>
+            Ville de l'enseignant.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.DTOs.EnseignantDTO.Province">
+            <summary>
+            Province de l'enseignant.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.DTOs.EnseignantDTO.CodePostal">
+            <summary>
+            Code postal de l'enseignant.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.DTOs.EnseignantDTO.Telephone">
+            <summary>
+            Telephone de l'enseignant.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.DTOs.EnseignantDTO.Courriel">
+            <summary>
+            Courriel de l'enseignant.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.DTOs.EnseignantDTO.DateEmbauche">
+            <summary>
+            Date d'embauche de l'enseignant.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.DTOs.EnseignantDTO.DateArret">
+            <summary>
+            Date d'arrêt de l'enseignant.
+            </summary>
+        </member>
+        <member name="M:GestionCegepMobile.DTOs.EnseignantDTO.#ctor(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Constructeur avec paramètres.
+            </summary>
+            <param name="no">No d'employé de l'enseignant.</param>
+            <param name="nom">Nom de l'enseignant.</param>
+            <param name="prenom">Prénom de l'enseignant.</param>
+            <param name="adresse">Adresse de l'enseignant.</param>
+            <param name="ville">Ville de l'enseignant.</param>
+            <param name="province">Province de l'enseignant.</param>
+            <param name="codePostal">Code Postal de l'enseignant.</param>
+            <param name="telephone">Telephone de l'enseignant.</param>
+            <param name="courriel">Courriel de l'enseignant.</param>
+            <param name="dateEmbauche">Date d'embauche de l'enseignant.</param>
+            <param name="dateArret">Date d'arrêt de l'enseignant.</param>
+        </member>
+        <member name="M:GestionCegepMobile.DTOs.EnseignantDTO.#ctor(GestionCegepMobile.Modeles.Enseignant)">
+            <summary>
+            Constructeur avec modèle.
+            </summary>
+            <param name="lenseignant">Modèle de l'enseignant.</param>
+        </member>
+        <member name="T:GestionCegepMobile.Exceptions.DBUniqueException">
+            <summary>
+            Classe pour l'exception DBUniqueException
+            </summary>
+        </member>
+        <member name="M:GestionCegepMobile.Exceptions.DBUniqueException.#ctor">
+            <summary>
+            Constructeur sans paramètres.
+            </summary>
+        </member>
+        <member name="M:GestionCegepMobile.Exceptions.DBUniqueException.#ctor(System.String)">
+            <summary>
+            Constructeur avec un message comme paramètre.
+            </summary>
+            <param name="message">Le message.</param>
+        </member>
+        <member name="M:GestionCegepMobile.Exceptions.DBUniqueException.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructeur avec le message et l'inner exception comme paramètres.
+            </summary>
+            <param name="message">Le message.</param>
+            <param name="inner">L'inner exception.</param>
+        </member>
+        <member name="T:GestionCegepMobile.Modeles.Cegep">
+            <summary>
+            Classe représentant un Cégep.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Modeles.Cegep.nom">
+            <summary>
+            Attribut représentant le nom du Cégep.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.Modeles.Cegep.Nom">
+            <summary>
+            Propriété représentant le nom du Cégep.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Modeles.Cegep.adresse">
+            <summary>
+            Attribut représentant l'adresse du Cégep.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.Modeles.Cegep.Adresse">
+            <summary>
+            Propriété représentant l'adresse du Cégep.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Modeles.Cegep.ville">
+            <summary>
+            Attribut représentant la ville du Cégep.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.Modeles.Cegep.Ville">
+            <summary>
+            Propriété représentant la ville du Cégep.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Modeles.Cegep.province">
+            <summary>
+            Attribut représentant la province du Cégep.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.Modeles.Cegep.Province">
+            <summary>
+            Propriété représentant la province du Cégep.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Modeles.Cegep.codePostal">
+            <summary>
+            Attribut représentant le code postal du Cégep.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.Modeles.Cegep.CodePostal">
+            <summary>
+            Propriété représentant le code postal du Cégep.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Modeles.Cegep.telephone">
+            <summary>
+            Attribut représentant le telephone du Cégep.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.Modeles.Cegep.Telephone">
+            <summary>
+            Propriété représentant le telephone du Cégep.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Modeles.Cegep.courriel">
+            <summary>
+            Attribut représentant le courriel du Cégep.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.Modeles.Cegep.Courriel">
+            <summary>
+            Propriété représentant le courriel du Cégep.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Modeles.Cegep.listeDepartement">
+            <summary>
+            Attribut représentant la liste des départements du Cégep.
+            </summary>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Cegep.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Constructeur paramétré
+            </summary>
+            <param name="unNom">Le nom du cégep</param>
+            <param name="uneAdresse">L'adresse du cégep</param>
+            <param name="uneVille">La ville du cégep</param>
+            <param name="uneProvince">La province du cégep</param>
+            <param name="unCodePostal">Le code postal du cégep</param>
+            <param name="unTelephone">Le téléphone du cégep</param>
+            <param name="unCourriel">Le courriel du cégep</param>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Cegep.ObtenirListeDepartement">
+            <summary>
+            Méthode de service permettant d'obtenir la liste des départements du cégep.
+            </summary>
+            <returns>Un tableau de départements</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Cegep.ObtenirDepartement(GestionCegepMobile.Modeles.Departement)">
+            <summary>
+            Méthode de service permettant d'obtenir un département.
+            </summary>
+            <param name="unDepartement">L'objet département que l'on veut avoir en fournissant les informations nécessaire dans le Equals.</param>
+            <returns>Le département qui correspond ou null si l'on a rien trouvé.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Cegep.SiDepartementPresent(GestionCegepMobile.Modeles.Departement)">
+            <summary>
+            Méthode de service permettant de vérifier si un département est présent dans la liste.
+            </summary>
+            <param name="unDepartement">Le département que l'on cherche. (Information du Equals)</param>
+            <returns>Vrai si le département est trouvé, Faux sinon...</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Cegep.AjouterDepartement(GestionCegepMobile.Modeles.Departement)">
+            <summary>
+            Méthode de service permettant d'ajouter un département à la liste.
+            </summary>
+            <param name="unDepartement">Le département à ajouter.</param>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Cegep.EnleverDepartement(GestionCegepMobile.Modeles.Departement)">
+            <summary>
+            Méthode de service permettant d'enlever un département à la liste.
+            </summary>
+            <param name="unDepartement">Le département à enlever.</param>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Cegep.ObtenirNombreDepartement">
+            <summary>
+            Méthode de service permettant d'obtenir le nombre de département du Cégep.
+            </summary>
+            <returns>Nombre de département.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Cegep.SiAucunDepartement">
+            <summary>
+            Méthode de service permettant de savoir si le Cégep a aucun département.
+            </summary>
+            <returns>Vrai si aucun département, Faux sinon...</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Cegep.ViderListeDepartement">
+            <summary>
+            Méthode de service permettant de vider la liste des département du Cégep.
+            </summary>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Cegep.CalculerSommeEtudiant">
+            <summary>
+            Méthode de service permettant de calculer la somme des étudiants du Cégep.
+            </summary>
+            <returns>Nombre d'étudiants dans le Cégep.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Cegep.CalculerMoyenneEtudiantDepartement">
+            <summary>
+            Méthode de service permettant de faire la moyenne des étudiants par département du Cégep.
+            </summary>
+            <returns>Moyenne des étudiants par département du Cégep.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Cegep.ToString">
+            <summary>
+            Méthode de service permettant d'obternir la version textuelle de l'objet Cegep.
+            </summary>
+            <returns>Version textuelle de l'objet Cegep.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Cegep.Equals(System.Object)">
+            <summary>
+            Méthode de service permettant de vérifier l'égalité entre deux objet Cegep.
+            Deux objets Cegep sont égaux s'ils ont le même nom.
+            </summary>
+            <param name="obj">L'objet de comparaison.</param>
+            <returns>Vrai si égal, Faux sinon...</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Cegep.GetHashCode">
+            <summary>
+            Méthode de service permettant d'obtenir le HashCode de l'objet Cegep.
+            </summary>
+            <returns>HashCode de l'objet Cegep.</returns>
+        </member>
+        <member name="T:GestionCegepMobile.Modeles.Cours">
+            <summary>
+            Classe représentant un cours.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Modeles.Cours.no">
+            <summary>
+            Attribut représentant le numéro du cours.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.Modeles.Cours.No">
+            <summary>
+            Propriété représentant le numéro du cours.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Modeles.Cours.nom">
+            <summary>
+            Attribut représentant le nom du cours.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.Modeles.Cours.Nom">
+            <summary>
+            Propriété représentant le nom du cours.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Modeles.Cours.description">
+            <summary>
+            Attribut représentant la description du cours.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.Modeles.Cours.Description">
+            <summary>
+            Propriété représentant la description du cours.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Modeles.Cours.enseignant">
+            <summary>
+            Attribut représentant l'enseignant du cours.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Modeles.Cours.listeEtudiant">
+            <summary>
+            Attribut représentant la liste des étudiants du cours.
+            </summary>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Cours.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Constructeur avec paramètres.
+            </summary>
+            <param name="unNo">Numéro du cours.</param>
+            <param name="unNom">Nom du cours.</param>
+            <param name="uneDescription">Description du cours.</param>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Cours.ObtenirListeEtudiant">
+            <summary>
+            Méthode de service permettant d'obtenir la liste des étudiants du cours.
+            </summary>
+            <returns>Tableau contenant la liste des étudiants du cours.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Cours.ObtenirEtudiant(GestionCegepMobile.Modeles.Etudiant)">
+            <summary>
+            Méthode de service permettant d'obtenir un étudiant du cours.
+            </summary>
+            <param name="unEtudiant">L'étudiant recherché.</param>
+            <returns>L'étudiant complet.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Cours.SiEtudiantPresent(GestionCegepMobile.Modeles.Etudiant)">
+            <summary>
+            Méthode de service permettant de savoir si un étudiant est présent.
+            </summary>
+            <param name="unEtudiant">L'étudiant recherché.</param>
+            <returns>Vrai si présent, Faux sinon...</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Cours.AjouterEtudiant(GestionCegepMobile.Modeles.Etudiant)">
+            <summary>
+            Méthode de service permettant d'ajouter un étudiant.
+            </summary>
+            <param name="unEtudiant">L'étudiant a ajouter.</param>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Cours.EnleverEtudiant(GestionCegepMobile.Modeles.Etudiant)">
+            <summary>
+            Méthode de service permettant d'enlever un étudiant.
+            </summary>
+            <param name="unEtudiant">L'étudiant a enlever.</param>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Cours.ObtenirNombreEtudiant">
+            <summary>
+            Méthode de service permettant d'obtenir le nombre d'étudiant présents dans le cours.
+            </summary>
+            <returns>Nombre d'étudiants présents dans le cours.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Cours.SiAucunEtudiant">
+            <summary>
+            Méthode de service permettant de savoir si aucun étudiant n'est présent dans le cours.
+            </summary>
+            <returns>Vrai si aucun étudiant dans le cours, Faux sinon...</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Cours.ViderListeEtudiant">
+            <summary>
+            Méthode de service permettant de vider la liste des étudiants du cours.
+            </summary>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Cours.ObtenirEnseignant">
+            <summary>
+            Méthode de service permettant d'obtenir l'enseignant du cours.
+            </summary>
+            <returns>L'enseignant.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Cours.InitialiserEnseignant(GestionCegepMobile.Modeles.Enseignant)">
+            <summary>
+            Méthode de service permettant d'initialiser l'enseignant du cours.
+            </summary>
+            <param name="unEnseignant">L'enseignant a effecter au cours.</param>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Cours.EnleverEnseignant(GestionCegepMobile.Modeles.Enseignant)">
+            <summary>
+            Méthode de service permettant d'enlever l'enseignant du cours.
+            </summary>
+            <param name="unEnseignant">L'enseignant a désaffecter.</param>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Cours.SiAucunEnseignant">
+            <summary>
+            Méthode de service permettant de savoir si aucun enseignant est affecté au cours.
+            </summary>
+            <returns>Vrai au aucun enseignant affecté, Faux sinon...</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Cours.ToString">
+            <summary>
+            Méthode de service permettant d'obtenir la version textuelle de l'objet de type Cours.
+            </summary>
+            <returns>La version textuelle de l'objet de type Cours.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Cours.Equals(System.Object)">
+            <summary>
+            Méthode de service permettant de vérifier l'égalité entre deux objet Cours.
+            Deux objets Cours sont égaux s'ils ont le même nom.
+            </summary>
+            <param name="obj">L'objet de comparaison.</param>
+            <returns>Vrai si égal, Faux sinon...</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Cours.GetHashCode">
+            <summary>
+            Méthode de service permettant d'obtenir le HashCode de l'objet Cours.
+            </summary>
+            <returns>HashCode de l'objet Cours.</returns>
+        </member>
+        <member name="T:GestionCegepMobile.Modeles.Departement">
+            <summary>
+            Classe de type Modele représentant un département.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:GestionCegepMobile.Modeles.Departement.no" -->
+        <member name="P:GestionCegepMobile.Modeles.Departement.No">
+            <summary>
+            Propriété représentant le numéro du département.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Modeles.Departement.nom">
+            <summary>
+            Attribut représentant le nom du département.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.Modeles.Departement.Nom">
+            <summary>
+            Propriété représentant le nom du département.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Modeles.Departement.description">
+            <summary>
+            Attribut représentant la description du département.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.Modeles.Departement.Description">
+            <summary>
+            Propriété représentant la description du département.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Modeles.Departement.listeEtudiant">
+            <summary>
+            Attribut représentant la liste des étudiants du département.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Modeles.Departement.listeEnseignant">
+            <summary>
+            Attribut représentant la liste des enseignants du département.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Modeles.Departement.listeCours">
+            <summary>
+            Attribut représentant la liste des cours du département.
+            </summary>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Departement.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Constructeur avec paramètres.
+            </summary>
+            <param name="unNo">Numéro du département.</param>
+            <param name="unNom">Nom du département.</param>
+            <param name="uneDescription">Description du département.</param>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Departement.ObtenirListeEtudiant">
+            <summary>
+            Méthode de service permettant d'obtenir la liste des étudiants sous forme de tableau.
+            </summary>
+            <returns>Tableau contenant la liste des étudiants.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Departement.ObtenirEtudiant(GestionCegepMobile.Modeles.Etudiant)">
+            <summary>
+            Méthode de service permettant d'obtenir un étudiant selon ses informations uniques.
+            </summary>
+            <param name="unEtudiant">Etudiant contenant les informations uniques.</param>
+            <returns>L'étudiant complet désiré.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Departement.SiEtudiantPresent(GestionCegepMobile.Modeles.Etudiant)">
+            <summary>
+            Méthode de service permettant de savoir si un étudiant est présent dans le département.
+            </summary>
+            <param name="unEtudiant">Etudiant contenant les informations uniques.</param>
+            <returns>True si l'étudiant est présent... False sinon...</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Departement.AjouterEtudiant(GestionCegepMobile.Modeles.Etudiant)">
+            <summary>
+            Méthode de service permettant d'ajouter un étudiant au département.
+            </summary>
+            <param name="unEtudiant">L'étudiant a ajouter...</param>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Departement.EnleverEtudiant(GestionCegepMobile.Modeles.Etudiant)">
+            <summary>
+            Méthode de service permettant d'enlever un étudiant du département.
+            </summary>
+            <param name="unEtudiant">L'étudiant contenant les informations uniques a enlever...</param>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Departement.ObtenirNombreEtudiant">
+            <summary>
+            Méthode de service permettant d'obtenir le nombre d'étudiants du département.
+            </summary>
+            <returns>Nombre d'étudiants du département.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Departement.SiAucunEtudiant">
+            <summary>
+            Méthode de service permettant de savoir s'il y a aucun étudiant dans le département.
+            </summary>
+            <returns>True si aucun étudiant, False sinon...</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Departement.ViderListeEtudiant">
+            <summary>
+            Méthode de service permettant de vider la liste des étudiants du département.
+            </summary>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Departement.ObtenirListeEnseignant">
+            <summary>
+            Méthode de service permettant d'obtenir la liste des enseignants sous forme de tableau.
+            </summary>
+            <returns>Tableau contenant la liste des enseignants.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Departement.ObtenirEnseignant(GestionCegepMobile.Modeles.Enseignant)">
+            <summary>
+            Méthode de service permettant d'obtenir un enseignants selon ses informations uniques.
+            </summary>
+            <param name="unEnseignant">Enseignant contenant les informations uniques.</param>
+            <returns>L'enseignant complet désiré.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Departement.SiEnseignantPresent(GestionCegepMobile.Modeles.Enseignant)">
+            <summary>
+            Méthode de service permettant de savoir si un enseignant est présent dans le département.
+            </summary>
+            <param name="unEnseignant">Enseignant contenant les informations uniques.</param>
+            <returns>True si l'enseignant est présent... False sinon...</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Departement.AjouterEnseignant(GestionCegepMobile.Modeles.Enseignant)">
+            <summary>
+            Méthode de service permettant d'ajouter un enseignant au département.
+            </summary>
+            <param name="unEnseignant">L'enseignant a ajouter...</param>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Departement.EnleverEnseignant(GestionCegepMobile.Modeles.Enseignant)">
+            <summary>
+            Méthode de service permettant d'enlever un enseignant du département.
+            </summary>
+            <param name="unEnseignant">L'enseignant contenant les informations uniques a enlever...</param>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Departement.ObtenirNombreEnseignant">
+            <summary>
+            Méthode de service permettant d'obtenir le nombre d'enseignant du département.
+            </summary>
+            <returns>Nombre d'enseignants du département.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Departement.SiAucunEnseignant">
+            <summary>
+            Méthode de service permettant de savoir s'il y a aucun enseignant dans le département.
+            </summary>
+            <returns>True si aucun enseignant, False sinon...</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Departement.ViderListeEnseignant">
+            <summary>
+            Méthode de service permettant de vider la liste des enseignants du département.
+            </summary>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Departement.ObtenirListeCours">
+            <summary>
+            Méthode de service permettant d'obtenir la liste des cours sous forme de tableau.
+            </summary>
+            <returns>Tableau contenant la liste des cours.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Departement.ObtenirCours(GestionCegepMobile.Modeles.Cours)">
+            <summary>
+            Méthode de service permettant d'obtenir un cours selon ses informations uniques.
+            </summary>
+            <param name="unCours">Cours contenant les informations uniques.</param>
+            <returns>Le cours complet désiré.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Departement.SiCoursPresent(GestionCegepMobile.Modeles.Cours)">
+            <summary>
+            Méthode de service permettant de savoir si un cours est présent dans le département.
+            </summary>
+            <param name="unCours">Cours contenant les informations uniques.</param>
+            <returns>True si le cours est présent... False sinon...</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Departement.AjouterCours(GestionCegepMobile.Modeles.Cours)">
+            <summary>
+            Méthode de service permettant d'ajouter un cours au département.
+            </summary>
+            <param name="unCours">Le cours a ajouter...</param>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Departement.EnleverCours(GestionCegepMobile.Modeles.Cours)">
+            <summary>
+            Méthode de service permettant d'enlever un cours du département.
+            </summary>
+            <param name="unCours">Le cours contenant les informations uniques a enlever...</param>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Departement.ObtenirNombreCours">
+            <summary>
+            Méthode de service permettant d'obtenir le nombre de cours du département.
+            </summary>
+            <returns>Nombre de cours du département.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Departement.SiAucunCours">
+            <summary>
+            Méthode de service permettant de savoir s'il y a aucun cours dans le département.
+            </summary>
+            <returns>True si aucun cours, False sinon...</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Departement.ViderListeCours">
+            <summary>
+            Méthode de service permettant de vider la liste des cours du département.
+            </summary>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Departement.ToString">
+            <summary>
+            Méthode de service permettant d'obternir la version textuelle de l'objet Departement.
+            </summary>
+            <returns>Version textuelle de l'objet Departement.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Departement.Equals(System.Object)">
+            <summary>
+            Méthode de service permettant de vérifier l'égalité entre deux objet Departement.
+            Deux objets Departement sont égaux s'ils ont le même nom.
+            </summary>
+            <param name="obj">L'objet de comparaison.</param>
+            <returns>Vrai si égal, Faux sinon...</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Departement.GetHashCode">
+            <summary>
+            Méthode de service permettant d'obtenir le HashCode de l'objet Departement.
+            </summary>
+            <returns>HashCode de l'objet Departement.</returns>
+        </member>
+        <member name="T:GestionCegepMobile.Modeles.Enseignant">
+            <summary>
+            Classe de type Modele représentant un enseignant.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Modeles.Enseignant.noEmploye">
+            <summary>
+            Attribut représentant le numéro d'employé de l'enseignant.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.Modeles.Enseignant.NoEmploye">
+            <summary>
+            Propriété représentant le numéro d'employé de l'enseignant.
+            </summary>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Enseignant.#ctor(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Constructeur avec paramètres.
+            </summary>
+            <param name="unNoEmploye">Numéro d'employé de l'enseignant.</param>
+            <param name="unPrenom">Le prénom d'une personne.</param>
+            <param name="unNom">Le nom d'une personne.</param>
+            <param name="uneAdresse">L'adresse d'une personne.</param>
+            <param name="uneVille">La ville d'une personne.</param>
+            <param name="uneProvince">La province d'une personne.</param>
+            <param name="unCodePostal">Le code postal d'une personne.</param>
+            <param name="unTelephone">Le téléphone d'une personne.</param>
+            <param name="unCourriel">Le courriel d'une personne.</param>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Enseignant.ToString">
+            <summary>
+            Méthode de service permettant d'obternir la version textuelle de l'objet Enseignant.
+            </summary>
+            <returns>Version textuelle de l'objet Enseignant.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Enseignant.Equals(System.Object)">
+            <summary>
+            Méthode de service permettant de vérifier l'égalité entre deux objet Enseignant.
+            Deux objets Enseignant sont égaux s'ils ont le même numéro d'employé.
+            </summary>
+            <param name="obj">L'objet de comparaison.</param>
+            <returns>Vrai si égal, Faux sinon...</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Enseignant.GetHashCode">
+            <summary>
+            Méthode de service permettant d'obtenir le HashCode de l'objet Enseignant.
+            </summary>
+            <returns>HashCode de l'objet Enseignant.</returns>
+        </member>
+        <member name="T:GestionCegepMobile.Modeles.Etudiant">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Modeles.Etudiant.noDA">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.Modeles.Etudiant.NoDA">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Modeles.Etudiant.dateInscription">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.Modeles.Etudiant.DateInscription">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Modeles.Etudiant.actif">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.Modeles.Etudiant.Actif">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Etudiant.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Etudiant.#ctor(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.DateTime},System.Boolean)">
+            <summary>
+            Constructeur paramétré
+            </summary>
+            <param name="unNoDA">le no d'étudiant</param>
+            <param name="unPrenom">le prénom de l'étudiant</param>
+            <param name="unNom">le nom de l'étudiant</param>
+            <param name="uneAdresse">l'adresse de l'étudiant</param>
+            <param name="uneVille">la ville de l'étudiant</param>
+            <param name="uneProvince">la province de l'étudiant</param>
+            <param name="unCodePostal">le code postal de l'étudiant</param>
+            <param name="unTelephone">le téléphone de l'étudiant</param>
+            <param name="unCourriel">le courriel de l'étudiant</param>
+            <param name="uneDateInscription">la date d'inscription de l'étudiant</param>
+            <param name="unEtat">L'état de l'étudiant s'il est actif au cégep ou non</param>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Etudiant.ToString">
+            <summary>
+            Redéfinition de la méthode ToString pour l'affichage d'un étudiant
+            </summary>
+            <returns>la chaine de caractère qui sera affiché</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Etudiant.Equals(System.Object)">
+            <summary>
+            Redéfinition de la méthode Equals qui se fait à partir du NoDA
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Etudiant.GetHashCode">
+            <summary>
+            Redéfinition de la méthode GetHashCode à partir du numéro de demande d'admission (no étudiant)
+            </summary>
+            <returns>le no généré par la méthode GetHashCode à partir du noDA</returns>
+        </member>
+        <member name="T:GestionCegepMobile.Modeles.Personne">
+            <summary>
+            Classe de type Modele représentant un personne.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Modeles.Personne.prenom">
+            <summary>
+            Attribut représentant le prénom d'une personne.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.Modeles.Personne.Prenom">
+            <summary>
+            Propriété représentant le prénom d'une personne.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Modeles.Personne.nom">
+            <summary>
+            Attribut représentant le nom d'une personne.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.Modeles.Personne.Nom">
+            <summary>
+            Propriété représentant le nom d'une personne.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Modeles.Personne.adresse">
+            <summary>
+            Attribut représentant l'adresse d'une personne.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.Modeles.Personne.Adresse">
+            <summary>
+            Propriété représentant l'adresse d'une personne.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Modeles.Personne.ville">
+            <summary>
+            Attribut représentant la ville d'une personne.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.Modeles.Personne.Ville">
+            <summary>
+            Propriété représentant la ville d'une personne.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Modeles.Personne.province">
+            <summary>
+            Attribut représentant la province d'une personne.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.Modeles.Personne.Province">
+            <summary>
+            Propriété représentant la province d'une personne.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Modeles.Personne.codePostal">
+            <summary>
+            Attribut représentant le code postal d'une personne.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.Modeles.Personne.CodePostal">
+            <summary>
+            Propriété représentant le code postal d'une personne.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Modeles.Personne.telephone">
+            <summary>
+            Attribut représentant le téléphone d'une personne.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.Modeles.Personne.Telephone">
+            <summary>
+            Propriété représentant le téléphone d'une personne.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Modeles.Personne.courriel">
+            <summary>
+            Attribut représentant le courriel d'une personne.
+            </summary>
+        </member>
+        <member name="P:GestionCegepMobile.Modeles.Personne.Courriel">
+            <summary>
+            Propriété représentant le courriel d'une personne.
+            </summary>
+        </member>
+        <member name="M:GestionCegepMobile.Modeles.Personne.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Constructeur avec paramètres.
+            </summary>
+            <param name="unPrenom">Le prénom d'une personne.</param>
+            <param name="unNom">Le nom d'une personne.</param>
+            <param name="uneAdresse">L'adresse d'une personne.</param>
+            <param name="uneVille">La ville d'une personne.</param>
+            <param name="uneProvince">La province d'une personne.</param>
+            <param name="unCodePostal">Le code postal d'une personne.</param>
+            <param name="unTelephone">Le téléphone d'une personne.</param>
+            <param name="unCourriel">Le courriel d'une personne.</param>
+        </member>
+        <member name="T:GestionCegepMobile.Vues.CegepActivity">
+            <summary>
+            Classe de type Activité pour l'affichage des Cégeps et l'ajout d'un Cégep.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Vues.CegepActivity.listeCegep">
+            <summary>
+            Liste de cégeps.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Vues.CegepActivity.adapteurListeCegep">
+            <summary>
+            Adapteur de la liste de Cégeps.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Vues.CegepActivity.edtNomCegep">
+            <summary>
+            Attribut représentant le champ d'édition du nom du Cégep pour l'ajout d'un Cégep.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Vues.CegepActivity.edtAdresseCegep">
+            <summary>
+            Attribut représentant le champ d'édition de l'adresse du Cégep pour l'ajout d'un Cégep.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Vues.CegepActivity.edtVilleCegep">
+            <summary>
+            Attribut représentant le champ d'édition de la ville du Cégep pour l'ajout d'un Cégep.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Vues.CegepActivity.edtProvinceCegep">
+            <summary>
+            Attribut représentant le champ d'édition de la province du Cégep pour l'ajout d'un Cégep.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Vues.CegepActivity.edtCodePostalCegep">
+            <summary>
+            Attribut représentant le champ d'édition du code postal du Cégep pour l'ajout d'un Cégep.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Vues.CegepActivity.edtTelephoneCegep">
+            <summary>
+            Attribut représentant le champ d'édition du téléphone du Cégep pour l'ajout d'un Cégep.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Vues.CegepActivity.edtCourrielCegep">
+            <summary>
+            Attribut représentant le champ d'édition du courriel du Cégep pour l'ajout d'un Cégep.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Vues.CegepActivity.btnAjouterCegep">
+            <summary>
+            Attribut représentant le bouton pour l'ajout d'un Cégep.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Vues.CegepActivity.listViewCegep">
+            <summary>
+            Attribut représentant le listView pour la liste des Cégeps.
+            </summary>
+        </member>
+        <member name="M:GestionCegepMobile.Vues.CegepActivity.OnCreate(Android.OS.Bundle)">
+            <summary>
+            Méthode de service appelée lors de la création de l'activité.
+            </summary>
+            <param name="savedInstanceState">État de l'activité.</param>
+        </member>
+        <member name="M:GestionCegepMobile.Vues.CegepActivity.OnResume">
+            <summary>
+            Méthode de service appelée lors du retour en avant plan de l'activité.
+            </summary>
+        </member>
+        <member name="M:GestionCegepMobile.Vues.CegepActivity.RafraichirInterfaceDonnees">
+            <summary>
+            Méthode permettant de rafraichir la liste des Cégeps...
+            </summary>
+        </member>
+        <member name="M:GestionCegepMobile.Vues.CegepActivity.OnCreateOptionsMenu(Android.Views.IMenu)">
+            <summary>Méthode de service permettant d'initialiser le menu de l'activité.</summary>
+            <param name="menu">Le menu à construire.</param>
+            <returns>Retourne True si l'optionMenu est bien créé.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Vues.CegepActivity.OnOptionsItemSelected(Android.Views.IMenuItem)">
+            <summary>Méthode de service permettant de capter l'évenement exécuté lors d'un choix dans le menu.</summary>
+            <param name="item">L'item sélectionné.</param>
+            <returns>Retourne si un option à été sélectionné avec succès.</returns>
+        </member>
+        <member name="T:GestionCegepMobile.Vues.CegepDetailsActivity">
+            <summary>
+            Classe de type Activité pour la gestion d'un Cégep.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Vues.CegepDetailsActivity.paramNomCegep">
+            <summary>
+            Attribut représentant le paramètre reçu de l'activité précédente.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Vues.CegepDetailsActivity.leCegep">
+            <summary>
+            Attribut représentant le DTO du Cégep.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Vues.CegepDetailsActivity.lblNomCegepAfficher">
+            <summary>
+            Attribut représentant l'étiquette pour l'affichage du nom du Cégep.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Vues.CegepDetailsActivity.lblAdresseCegepAfficher">
+            <summary>
+            Attribut représentant l'étiquette pour l'affichage de l'adresse du Cégep.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Vues.CegepDetailsActivity.lblVilleCegepAfficher">
+            <summary>
+            Attribut représentant l'étiquette pour l'affichage de la ville du Cégep.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Vues.CegepDetailsActivity.lblProvinceCegepAfficher">
+            <summary>
+            Attribut représentant l'étiquette pour l'affichage de la province du Cégep.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Vues.CegepDetailsActivity.lblCodePostalCegepAfficher">
+            <summary>
+            Attribut représentant l'étiquette pour l'affichage du code postal du Cégep.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Vues.CegepDetailsActivity.lblTelephoneCegepAfficher">
+            <summary>
+            Attribut représentant l'étiquette pour l'affichage du téléphone du Cégep.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Vues.CegepDetailsActivity.lblCourrielCegepAfficher">
+            <summary>
+            Attribut représentant l'étiquette pour l'affichage du courriel du Cégep.
+            </summary>
+        </member>
+        <member name="M:GestionCegepMobile.Vues.CegepDetailsActivity.OnCreate(Android.OS.Bundle)">
+            <summary>
+            Méthode de service appelée lors de la création de l'activité.
+            </summary>
+            <param name="savedInstanceState">État de l'activité.</param>
+        </member>
+        <member name="M:GestionCegepMobile.Vues.CegepDetailsActivity.OnResume">
+            <summary>
+            Méthode de service appelée lors du retour en avant plan de l'activité.
+            </summary>
+        </member>
+        <member name="M:GestionCegepMobile.Vues.CegepDetailsActivity.RafraichirInterfaceDonnees">
+            <summary>
+            Méthode permettant de rafraichir les informations du Cégep...
+            </summary>
+        </member>
+        <member name="M:GestionCegepMobile.Vues.CegepDetailsActivity.OnCreateOptionsMenu(Android.Views.IMenu)">
+            <summary>Méthode de service permettant d'initialiser le menu de l'activité principale.</summary>
+            <param name="menu">Le menu à construire.</param>
+            <returns>Retourne True si l'optionMenu est bien créé.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Vues.CegepDetailsActivity.OnOptionsItemSelected(Android.Views.IMenuItem)">
+            <summary>Méthode de service permettant de capter l'évenement exécuté lors d'un choix dans le menu.</summary>
+            <param name="item">L'item sélectionné.</param>
+            <returns>Retourne si un option à été sélectionné avec succès.</returns>
+        </member>
+        <member name="T:GestionCegepMobile.Vues.CegepModifierActivity">
+            <summary>
+            Classe de type Activité pour la modification d'un Cégep.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Vues.CegepModifierActivity.paramNomCegep">
+            <summary>
+            Attribut représentant le paramètre reçu de l'activité précédente.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Vues.CegepModifierActivity.leCegep">
+            <summary>
+            Attribut représentant le DTO du Cégep.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Vues.CegepModifierActivity.edtNomCegepModifier">
+            <summary>
+            Attribut représentant le champ d'édition du nom du Cégep pour la modification d'un Cégep. 
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Vues.CegepModifierActivity.edtAdresseCegepModifier">
+            <summary>
+            Attribut représentant le champ d'édition de l'adresse du Cégep pour la modification d'un Cégep.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Vues.CegepModifierActivity.edtVilleCegepModifier">
+            <summary>
+            Attribut représentant le champ d'édition de la ville du Cégep pour la modification d'un Cégep.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Vues.CegepModifierActivity.edtProvinceCegepModifier">
+            <summary>
+            Attribut représentant le champ d'édition de la province du Cégep pour la modification d'un Cégep.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Vues.CegepModifierActivity.edtCodePostalCegepModifier">
+            <summary>
+            Attribut représentant le champ d'édition du code postal du Cégep pour la modification d'un Cégep.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Vues.CegepModifierActivity.edtTelephoneCegepModifier">
+            <summary>
+            Attribut représentant le champ d'édition du téléphone du Cégep pour la modification d'un Cégep.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Vues.CegepModifierActivity.edtCourrielCegepModifier">
+            <summary>
+            Attribut représentant le champ d'édition du courriel du Cégep pour la modification d'un Cégep.
+            </summary>
+        </member>
+        <member name="F:GestionCegepMobile.Vues.CegepModifierActivity.btnModifierCegep">
+            <summary>
+            Attribut représentant le bouton de modification.
+            </summary>
+        </member>
+        <member name="M:GestionCegepMobile.Vues.CegepModifierActivity.OnCreate(Android.OS.Bundle)">
+            <summary>
+            Méthode de service appelée lors de la création de l'activité.
+            </summary>
+            <param name="savedInstanceState">État de l'activité.</param>
+        </member>
+        <member name="M:GestionCegepMobile.Vues.CegepModifierActivity.OnResume">
+            <summary>
+            Méthode de service appelée lors du retour en avant plan de l'activité.
+            </summary>
+        </member>
+        <member name="M:GestionCegepMobile.Vues.CegepModifierActivity.RafraichirInterfaceDonnees">
+            <summary>
+            Méthode permettant de rafraichir les informations du Cégep...
+            </summary>
+        </member>
+        <member name="M:GestionCegepMobile.Vues.CegepModifierActivity.OnCreateOptionsMenu(Android.Views.IMenu)">
+            <summary>Méthode de service permettant d'initialiser le menu de l'activité principale.</summary>
+            <param name="menu">Le menu à construire.</param>
+            <returns>Retourne True si l'optionMenu est bien créé.</returns>
+        </member>
+        <member name="M:GestionCegepMobile.Vues.CegepModifierActivity.OnOptionsItemSelected(Android.Views.IMenuItem)">
+            <summary>Méthode de service permettant de capter l'évenement exécuté lors d'un choix dans le menu.</summary>
+            <param name="item">L'item sélectionné.</param>
+            <returns>Retourne si un option à été sélectionné avec succès.</returns>
+        </member>
+        <member name="T:GestionCegepMobile.Resource">
+            <summary>
+            Android Resource Designer class.
+            Exposes the Android Resource designer assembly into the project Namespace.
+            </summary>
+        </member>
+    </members>
+</doc>
