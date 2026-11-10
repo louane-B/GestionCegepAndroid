@@ -25,6 +25,9 @@ namespace GestionCegepMobile.Vues
         /// </summary>
         private CegepDTO leCegep;
 
+        private List<DepartementDTO> listeDepartement;
+        private ListeDepartementAdapter adapteurListeDepartement;
+
         /// <summary>
         /// Attribut représentant l'étiquette pour l'affichage du nom du Cégep.
         /// </summary>
@@ -59,6 +62,11 @@ namespace GestionCegepMobile.Vues
         /// Attribut représentant l'étiquette pour l'affichage du courriel du Cégep.
         /// </summary>
         private TextView lblCourrielCegepAfficher;
+
+        private EditText edtNomDepartement;
+        private EditText edtNoDepartement;
+        private EditText edtDescriptionDepartement;
+        private Button btnAjouterDepartement;
 
         /// <summary>
         /// Méthode de service appelée lors de la création de l'activité.
