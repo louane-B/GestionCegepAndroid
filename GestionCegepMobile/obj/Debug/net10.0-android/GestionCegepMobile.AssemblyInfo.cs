@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GestionCegepMobile")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+10de13985c26f297e73a3211923a9676a7e02b49")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+a535f758bdb4e4bf364e0f8b7e336591944d7409")]
 [assembly: System.Reflection.AssemblyProductAttribute("GestionCegepMobile")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GestionCegepMobile")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

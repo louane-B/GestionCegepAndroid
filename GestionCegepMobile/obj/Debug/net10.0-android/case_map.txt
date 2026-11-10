@@ -2,6 +2,7 @@ layout\cegep_activity;layout\Cegep_Activity
 layout\cegepdetails_activity;layout\CegepDetails_Activity
 layout\cegepmodifier_activity;layout\CegepModifier_Activity
 layout\listecegepitem;layout\ListeCegepItem
+layout\listedepartementitem;layout\ListeDepartementItem
 menu\cegep_activitymenu;menu\Cegep_ActivityMenu
 menu\cegepdetails_activitymenu;menu\CegepDetails_ActivityMenu
 menu\cegepmodifier_activitymenu;menu\CegepModifier_ActivityMenu

@@ -1,5 +1,6 @@
 ﻿using Android.Content;
 using Android.Views;
+using GestionCegepMobile.Adapteurs;
 using GestionCegepMobile.Controleurs;
 using GestionCegepMobile.DTOs;
 using GestionCegepMobile.Utils;
