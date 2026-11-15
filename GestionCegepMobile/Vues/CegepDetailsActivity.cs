@@ -26,7 +26,7 @@ namespace GestionCegepMobile.Vues
         /// </summary>
         private CegepDTO leCegep;
 
-        private List<DepartementDTO> listeDepartement;
+        private DepartementDTO[] listeDepartement;
         private ListeDepartementAdapter adapteurListeDepartement;
 
         /// <summary>
@@ -64,6 +64,7 @@ namespace GestionCegepMobile.Vues
         /// </summary>
         private TextView lblCourrielCegepAfficher;
 
+        private ListView listViewDepartement;
         private EditText edtNomDepartement;
         private EditText edtNoDepartement;
         private EditText edtDescriptionDepartement;
@@ -87,6 +88,8 @@ namespace GestionCegepMobile.Vues
             lblCourrielCegepAfficher = FindViewById<TextView>(Resource.Id.lblCourrielAfficher);
 
             paramNomCegep = Intent.GetStringExtra("paramNomCegep");
+
+            listViewDepartement = FindViewById<ListView>(Resource.Id.listViewDepartementAfficher);
         }
 
         /// <summary>
@@ -97,6 +100,7 @@ namespace GestionCegepMobile.Vues
             base.OnResume();
 
             RafraichirInterfaceDonnees();
+            RafraichirInterfaceDonneesDepartements();
         }
 
         /// <summary>
@@ -118,6 +122,21 @@ namespace GestionCegepMobile.Vues
             catch (Exception)
             {
                 Finish();
+            }
+        }
+
+        private void RafraichirInterfaceDonneesDepartements()
+        {
+            try
+            {
+                listeDepartement = CegepControleur.Instance.ObtenirListeDepartement(paramNomCegep).ToArray();
+                adapteurListeDepartement = new ListeDepartementAdapter(this, listeDepartement);
+                listViewDepartement.Adapter = adapteurListeDepartement;
+                edtNomDepartement.Text = edtNoDepartement.Text = edtDescriptionDepartement.Text = "";
+                edtNomDepartement.RequestFocus();
+            } catch (Exception ex)
+            {
+                DialoguesUtils.AfficherMessageOK(this, "Erreur", ex.Message);
             }
         }
 
