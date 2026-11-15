@@ -90,6 +90,13 @@ namespace GestionCegepMobile.Vues
             paramNomCegep = Intent.GetStringExtra("paramNomCegep");
 
             listViewDepartement = FindViewById<ListView>(Resource.Id.listViewDepartementAfficher);
+            listViewDepartement.ItemClick += (sender, e) =>
+            {
+                Intent activiteDepartementDetails = new Intent(this, typeof(DepartementDetailsActivity));
+                activiteDepartementDetails.PutExtra("paramNomDepartement", listeDepartement[e.Position].Nom);
+                activiteDepartementDetails.PutExtra("paramNomCegep", paramNomCegep);
+                StartActivity(activiteDepartementDetails);
+            };
 
             edtNoDepartement = FindViewById<EditText>(Resource.Id.edtNoDepartementInfo);
             edtNomDepartement = FindViewById<EditText>(Resource.Id.edtNomDepartementInfo);
@@ -105,7 +112,7 @@ namespace GestionCegepMobile.Vues
                         string no = edtNoDepartement.Text;
                         string nom = edtNomDepartement.Text;
                         CegepControleur.Instance.AjouterDepartement(paramNomCegep, new DepartementDTO(edtNoDepartement.Text, edtNomDepartement.Text, edtDescriptionDepartement.Text));
-                        RafraichirInterfaceDonneesDepartements();
+                        RafraichirInterfaceDonnees();
                         DialoguesUtils.AfficherToasts(this, no + " " + nom + " ajouté !!!");
                     }
                     catch (Exception ex)
@@ -126,7 +133,6 @@ namespace GestionCegepMobile.Vues
             base.OnResume();
 
             RafraichirInterfaceDonnees();
-            RafraichirInterfaceDonneesDepartements();
         }
 
         /// <summary>
@@ -136,7 +142,9 @@ namespace GestionCegepMobile.Vues
         {
             try
             {
+                // Rafraichir les information du cegep...
                 leCegep = CegepControleur.Instance.ObtenirCegep(paramNomCegep);
+
                 lblNomCegepAfficher.Text = leCegep.Nom;
                 lblAdresseCegepAfficher.Text = leCegep.Adresse;
                 lblVilleCegepAfficher.Text = leCegep.Ville;
@@ -144,6 +152,14 @@ namespace GestionCegepMobile.Vues
                 lblCodePostalCegepAfficher.Text = leCegep.CodePostal;
                 lblTelephoneCegepAfficher.Text = leCegep.Telephone;
                 lblCourrielCegepAfficher.Text = leCegep.Courriel;
+
+                //Rafraichir la liste des Departements...
+                listeDepartement = CegepControleur.Instance.ObtenirListeDepartement(paramNomCegep).ToArray();
+
+                adapteurListeDepartement = new ListeDepartementAdapter(this, listeDepartement);
+                listViewDepartement.Adapter = adapteurListeDepartement;
+                edtNoDepartement.Text = edtNomDepartement.Text = edtDescriptionDepartement.Text = "";
+                edtNoDepartement.RequestFocus();
             }
             catch (Exception)
             {
@@ -151,21 +167,7 @@ namespace GestionCegepMobile.Vues
             }
         }
 
-        private void RafraichirInterfaceDonneesDepartements()
-        {
-            try
-            {
-                listeDepartement = CegepControleur.Instance.ObtenirListeDepartement(paramNomCegep).ToArray();
-                adapteurListeDepartement = new ListeDepartementAdapter(this, listeDepartement);
-                listViewDepartement.Adapter = adapteurListeDepartement;
-                edtNomDepartement.Text = edtNoDepartement.Text = edtDescriptionDepartement.Text = "";
-                edtNomDepartement.RequestFocus();
-            } catch (Exception ex)
-            {
-                DialoguesUtils.AfficherMessageOK(this, "Erreur", ex.Message);
-            }
-        }
-
+        
         /// <summary>Méthode de service permettant d'initialiser le menu de l'activité principale.</summary>
         /// <param name="menu">Le menu à construire.</param>
         /// <returns>Retourne True si l'optionMenu est bien créé.</returns>
