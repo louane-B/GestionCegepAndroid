@@ -90,6 +90,32 @@ namespace GestionCegepMobile.Vues
             paramNomCegep = Intent.GetStringExtra("paramNomCegep");
 
             listViewDepartement = FindViewById<ListView>(Resource.Id.listViewDepartementAfficher);
+
+            edtNoDepartement = FindViewById<EditText>(Resource.Id.edtNoDepartementInfo);
+            edtNomDepartement = FindViewById<EditText>(Resource.Id.edtNomDepartementInfo);
+            edtDescriptionDepartement = FindViewById<EditText>(Resource.Id.edtDescriptionDepartementInfo);
+
+            btnAjouterDepartement = FindViewById<Button>(Resource.Id.btnAjouter);
+            btnAjouterDepartement.Click += delegate
+            {
+                if (edtNoDepartement.Text.Length > 0 && edtNomDepartement.Text.Length > 0 && edtDescriptionDepartement.Text.Length > 0)
+                {
+                    try
+                    {
+                        string no = edtNoDepartement.Text;
+                        string nom = edtNomDepartement.Text;
+                        CegepControleur.Instance.AjouterDepartement(paramNomCegep, new DepartementDTO(edtNoDepartement.Text, edtNomDepartement.Text, edtDescriptionDepartement.Text));
+                        RafraichirInterfaceDonneesDepartements();
+                        DialoguesUtils.AfficherToasts(this, no + " " + nom + " ajouté !!!");
+                    }
+                    catch (Exception ex)
+                    {
+                        DialoguesUtils.AfficherMessageOK(this, "Erreur", ex.Message);
+                    }
+                }
+                else
+                    DialoguesUtils.AfficherMessageOK(this, "Erreur", "Veuillez remplir tous les champs...");
+            };
         }
 
         /// <summary>
