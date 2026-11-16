@@ -1,5 +1,6 @@
 ﻿using Android.Content;
 using Android.Views;
+using GestionCegepMobile.Adapteurs;
 using GestionCegepMobile.Controleurs;
 using GestionCegepMobile.DTOs;
 using GestionCegepMobile.Utils;
@@ -24,6 +25,9 @@ namespace GestionCegepMobile.Vues
         /// Attribut représentant le DTO du Cégep.
         /// </summary>
         private CegepDTO leCegep;
+
+        private DepartementDTO[] listeDepartement;
+        private ListeDepartementAdapter adapteurListeDepartement;
 
         /// <summary>
         /// Attribut représentant l'étiquette pour l'affichage du nom du Cégep.
@@ -60,6 +64,12 @@ namespace GestionCegepMobile.Vues
         /// </summary>
         private TextView lblCourrielCegepAfficher;
 
+        private ListView listViewDepartement;
+        private EditText edtNomDepartement;
+        private EditText edtNoDepartement;
+        private EditText edtDescriptionDepartement;
+        private Button btnAjouterDepartement;
+
         /// <summary>
         /// Méthode de service appelée lors de la création de l'activité.
         /// </summary>
@@ -78,6 +88,41 @@ namespace GestionCegepMobile.Vues
             lblCourrielCegepAfficher = FindViewById<TextView>(Resource.Id.lblCourrielAfficher);
 
             paramNomCegep = Intent.GetStringExtra("paramNomCegep");
+
+            listViewDepartement = FindViewById<ListView>(Resource.Id.listViewDepartementAfficher);
+            listViewDepartement.ItemClick += (sender, e) =>
+            {
+                Intent activiteDepartementDetails = new Intent(this, typeof(DepartementDetailsActivity));
+                activiteDepartementDetails.PutExtra("paramNomDepartement", listeDepartement[e.Position].Nom);
+                activiteDepartementDetails.PutExtra("paramNomCegep", paramNomCegep);
+                StartActivity(activiteDepartementDetails);
+            };
+
+            edtNoDepartement = FindViewById<EditText>(Resource.Id.edtNoDepartementInfo);
+            edtNomDepartement = FindViewById<EditText>(Resource.Id.edtNomDepartementInfo);
+            edtDescriptionDepartement = FindViewById<EditText>(Resource.Id.edtDescriptionDepartementInfo);
+
+            btnAjouterDepartement = FindViewById<Button>(Resource.Id.btnAjouter);
+            btnAjouterDepartement.Click += delegate
+            {
+                if (edtNoDepartement.Text.Length > 0 && edtNomDepartement.Text.Length > 0 && edtDescriptionDepartement.Text.Length > 0)
+                {
+                    try
+                    {
+                        string no = edtNoDepartement.Text;
+                        string nom = edtNomDepartement.Text;
+                        CegepControleur.Instance.AjouterDepartement(paramNomCegep, new DepartementDTO(edtNoDepartement.Text, edtNomDepartement.Text, edtDescriptionDepartement.Text));
+                        RafraichirInterfaceDonnees();
+                        DialoguesUtils.AfficherToasts(this, no + " " + nom + " ajouté !!!");
+                    }
+                    catch (Exception ex)
+                    {
+                        DialoguesUtils.AfficherMessageOK(this, "Erreur", ex.Message);
+                    }
+                }
+                else
+                    DialoguesUtils.AfficherMessageOK(this, "Erreur", "Veuillez remplir tous les champs...");
+            };
         }
 
         /// <summary>
@@ -97,7 +142,9 @@ namespace GestionCegepMobile.Vues
         {
             try
             {
+                // Rafraichir les information du cegep...
                 leCegep = CegepControleur.Instance.ObtenirCegep(paramNomCegep);
+
                 lblNomCegepAfficher.Text = leCegep.Nom;
                 lblAdresseCegepAfficher.Text = leCegep.Adresse;
                 lblVilleCegepAfficher.Text = leCegep.Ville;
@@ -105,6 +152,14 @@ namespace GestionCegepMobile.Vues
                 lblCodePostalCegepAfficher.Text = leCegep.CodePostal;
                 lblTelephoneCegepAfficher.Text = leCegep.Telephone;
                 lblCourrielCegepAfficher.Text = leCegep.Courriel;
+
+                //Rafraichir la liste des Departements...
+                listeDepartement = CegepControleur.Instance.ObtenirListeDepartement(paramNomCegep).ToArray();
+
+                adapteurListeDepartement = new ListeDepartementAdapter(this, listeDepartement);
+                listViewDepartement.Adapter = adapteurListeDepartement;
+                edtNoDepartement.Text = edtNomDepartement.Text = edtDescriptionDepartement.Text = "";
+                edtNoDepartement.RequestFocus();
             }
             catch (Exception)
             {
@@ -112,6 +167,7 @@ namespace GestionCegepMobile.Vues
             }
         }
 
+        
         /// <summary>Méthode de service permettant d'initialiser le menu de l'activité principale.</summary>
         /// <param name="menu">Le menu à construire.</param>
         /// <returns>Retourne True si l'optionMenu est bien créé.</returns>

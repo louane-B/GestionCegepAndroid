@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+ android:layout_width="match_parent"
+ android:layout_height="match_parent"
+ android:background="#ECEFF1"
+ android:id="@+id/scrollView">
+	
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+        android:padding="16dp"
+		android:layout_marginTop="100dp">
+
+		<!-- TITRE -->
+
+		<TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gestion du département"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#1565C0"
+            android:layout_marginBottom="20dp" />
+
+		<!-- CARTE INFORMATION -->
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:background="#FFFFFF"
+			android:padding="16dp"
+			android:layout_marginBottom="16dp">
+
+			<TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Informations du département"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#263238"
+                android:layout_marginBottom="12dp" />
+			
+			<!-- NOM -->
+
+			<LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="8dp">
+
+				<TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:text="Nom :"
+                    android:textStyle="bold"
+                    android:textColor="#37474F" />
+
+				<TextView
+                    android:id="@+id/lblNomDepartementAfficher"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:textColor="#546E7A" />
+			</LinearLayout>
+
+			<!-- NUMÉRO -->
+
+			<LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="8dp">
+
+				<TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:text="No :"
+                    android:textStyle="bold"
+                    android:textColor="#37474F" />
+
+				<TextView
+                    android:id="@+id/lblNoDepartementAfficher"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:textColor="#546E7A" />
+			</LinearLayout>
+			
+			<!-- DESCRIPTION -->
+
+			<LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="8dp">
+
+				<TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:text="Description :"
+                    android:textStyle="bold"
+                    android:textColor="#37474F" />
+
+				<TextView
+                    android:id="@+id/lblDescriptionDepartementAfficher"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:textColor="#546E7A" />
+			</LinearLayout>
+
+		</LinearLayout>
+	</LinearLayout>
+</ScrollView>
