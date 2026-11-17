@@ -47,6 +47,9 @@ namespace GestionCegepMobile.Vues
             paramNomCegep = Intent.GetStringExtra("paramNomCegep");
 
             listViewEnseignant = FindViewById<ListView>(Resource.Id.listViewEnseignant);
+            listViewEnseignant.ItemClick += (sender, e) =>
+            {
+            }
 
             btnAjouterEnseignant = FindViewById<Button>(Resource.Id.btnAjouter);
             btnAjouterEnseignant.Click += delegate
