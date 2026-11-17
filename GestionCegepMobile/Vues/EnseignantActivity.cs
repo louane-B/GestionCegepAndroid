@@ -33,6 +33,19 @@ namespace GestionCegepMobile.Vues
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Enseignant_Activity);
 
+            edtNoEnseignant = FindViewById<EditText>(Resource.Id.edtNoInfo);
+            edtNomEnseignant = FindViewById<EditText>(Resource.Id.edtNomInfo);
+            edtPrenomEnseignant = FindViewById<EditText>(Resource.Id.edtPrenomInfo);
+            edtAdresseEnseignant = FindViewById<EditText>(Resource.Id.edtAdresseInfo);
+            edtVilleEnseignant = FindViewById<EditText>(Resource.Id.edtVilleInfo);
+            edtProvinceEnseignant = FindViewById<EditText>(Resource.Id.edtProvinceInfo);
+            edtCodePostalEnseignant = FindViewById<EditText>(Resource.Id.edtCodePostalInfo);
+            edtTelephoneEnseignant = FindViewById<EditText>(Resource.Id.edtTelephoneInfo);
+            edtCourrielEnseignant = FindViewById<EditText>(Resource.Id.edtCourrielInfo);
+
+            paramNomDepartement = Intent.GetStringExtra("paramNomDepartement");
+            paramNomCegep = Intent.GetStringExtra("paramNomCegep");
+
             listViewEnseignant = FindViewById<ListView>(Resource.Id.listViewEnseignant);
         }
 
