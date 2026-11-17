@@ -1,4 +1,7 @@
-﻿using GestionCegepMobile.DTOs;
+﻿using GestionCegepMobile.Adapteurs;
+using GestionCegepMobile.Controleurs;
+using GestionCegepMobile.DTOs;
+using GestionCegepMobile.Utils;
 
 namespace GestionCegepMobile.Vues
 {
@@ -38,6 +41,22 @@ namespace GestionCegepMobile.Vues
             base.OnResume();
 
             RafraichirInterfaceDonnees();
+        }
+
+        private void RafraichirInterfaceDonnees()
+        {
+            try
+            {
+                listeEnseignant = CegepControleur.Instance.ObtenirListeEnseignant(paramNomCegep, paramNomDepartement).ToArray();
+                adapteurListeEnseignant = new ListeEnseignantAdapter(this, listeEnseignant);
+                listViewEnseignant.Adapter = adapteurListeEnseignant;
+                edtNomEnseignant.Text = edtAdresseEnseignant.Text = edtVilleEnseignant.Text = edtProvinceEnseignant.Text = edtCodePostalEnseignant.Text = edtTelephoneEnseignant.Text = edtCourrielEnseignant.Text = "";
+                edtNomEnseignant.RequestFocus();
+            }
+            catch (Exception ex)
+            {
+                DialoguesUtils.AfficherMessageOK(this, "Erreur", ex.Message);
+            }
         }
     }
 }
