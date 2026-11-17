@@ -47,6 +47,28 @@ namespace GestionCegepMobile.Vues
             paramNomCegep = Intent.GetStringExtra("paramNomCegep");
 
             listViewEnseignant = FindViewById<ListView>(Resource.Id.listViewEnseignant);
+
+            btnAjouterEnseignant = FindViewById<Button>(Resource.Id.btnAjouter);
+            btnAjouterEnseignant.Click += delegate
+            {
+                if (edtNoEnseignant.Text.Length > 0 && edtNomEnseignant.Text.Length > 0 && edtPrenomEnseignant.Text.Length > 0 && edtAdresseEnseignant.Text.Length > 0 && edtVilleEnseignant.Text.Length > 0 && edtProvinceEnseignant.Text.Length > 0 && edtCodePostalEnseignant.Text.Length > 0 && edtTelephoneEnseignant.Text.Length > 0 && edtCourrielEnseignant.Text.Length > 0)
+                {
+                    try
+                    {
+                        string nom = edtNomEnseignant.Text;
+                        string prenom = edtPrenomEnseignant.Text;
+                        CegepControleur.Instance.AjouterEnseignant(paramNomCegep, paramNomDepartement, new EnseignantDTO(int.Parse(edtNoEnseignant.Text), edtNomEnseignant.Text, edtPrenomEnseignant.Text, edtAdresseEnseignant.Text, edtVilleEnseignant.Text, edtProvinceEnseignant.Text, edtCodePostalEnseignant.Text, edtTelephoneEnseignant.Text, edtCourrielEnseignant.Text));
+                        RafraichirInterfaceDonnees();
+                        DialoguesUtils.AfficherToasts(this, prenom + " " + nom + " ajouté !!!");
+                    }
+                    catch (Exception ex)
+                    {
+                        DialoguesUtils.AfficherMessageOK(this, "Erreur", ex.Message);
+                    }
+                }
+                else
+                    DialoguesUtils.AfficherMessageOK(this, "Erreur", "Veuillez remplir tous les champs...");
+            };
         }
 
         protected override void OnResume()
