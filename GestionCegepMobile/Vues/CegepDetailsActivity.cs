@@ -159,7 +159,7 @@ namespace GestionCegepMobile.Vues
                 adapteurListeDepartement = new ListeDepartementAdapter(this, listeDepartement);
                 listViewDepartement.Adapter = adapteurListeDepartement;
                 edtNoDepartement.Text = edtNomDepartement.Text = edtDescriptionDepartement.Text = "";
-                edtNoDepartement.RequestFocus();
+                edtNomDepartement.RequestFocus();
             }
             catch (Exception)
             {

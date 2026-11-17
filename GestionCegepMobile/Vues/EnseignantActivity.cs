@@ -50,7 +50,7 @@ namespace GestionCegepMobile.Vues
                 listeEnseignant = CegepControleur.Instance.ObtenirListeEnseignant(paramNomCegep, paramNomDepartement).ToArray();
                 adapteurListeEnseignant = new ListeEnseignantAdapter(this, listeEnseignant);
                 listViewEnseignant.Adapter = adapteurListeEnseignant;
-                edtNomEnseignant.Text = edtAdresseEnseignant.Text = edtVilleEnseignant.Text = edtProvinceEnseignant.Text = edtCodePostalEnseignant.Text = edtTelephoneEnseignant.Text = edtCourrielEnseignant.Text = "";
+                edtNoEnseignant.Text = edtNomEnseignant.Text = edtPrenomEnseignant.Text = edtAdresseEnseignant.Text = edtVilleEnseignant.Text = edtProvinceEnseignant.Text = edtCodePostalEnseignant.Text = edtTelephoneEnseignant.Text = edtCourrielEnseignant.Text = "";
                 edtNomEnseignant.RequestFocus();
             }
             catch (Exception ex)
