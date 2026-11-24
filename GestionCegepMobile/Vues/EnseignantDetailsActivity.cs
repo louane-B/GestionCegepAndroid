@@ -44,7 +44,7 @@ namespace GestionCegepMobile.Vues
 
             paramNomCegep = Intent.GetStringExtra("paramNomCegep");
             paramNomDepartement = Intent.GetStringExtra("paramNomDepartement");
-            paramNoEmploye = Intent.GetIntExtra("paramNoEmployer", 0);
+            paramNoEmploye = Intent.GetIntExtra("paramNoEmploye", paramNoEmploye);
         }
 
         protected override void OnResume()
@@ -78,7 +78,7 @@ namespace GestionCegepMobile.Vues
 
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
-            MenuInflater.Inflate(Resource.Menu.Enseignant_ActivityMenu, menu);
+            MenuInflater.Inflate(Resource.Menu.EnseignantDetails_ActivityMenu, menu);
             return base.OnCreateOptionsMenu(menu);
         }
 
@@ -88,7 +88,7 @@ namespace GestionCegepMobile.Vues
             {
 
                 case Resource.Id.Modifier:
-                    Intent activiteEnseignantModifier = new Intent(this, typeof(CegepModifierActivity));
+                    Intent activiteEnseignantModifier = new Intent(this, typeof(EnseignantModifierActivity));
                     activiteEnseignantModifier.PutExtra("paramNomCegep", paramNomCegep);
                     activiteEnseignantModifier.PutExtra("paramNomDepartement", paramNomDepartement);
                     activiteEnseignantModifier.PutExtra("paramNoEmploye", paramNoEmploye);

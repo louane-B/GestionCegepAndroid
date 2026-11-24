@@ -110,8 +110,8 @@ namespace GestionCegepMobile.Vues
                 {
                     try
                     {
-                        CegepControleur.Instance.ModifierEnseignant(paramNomCegep, paramNomDepartement, new EnseignantDTO(paramNoEmploye, "", "", "", "", "", "", "", ""));
-                        DialoguesUtils.AfficherToasts(this,"L'enseignant " + paramNoEmploye + " du " + paramNomCegep + " du programme "+ paramNomDepartement + " est modifié !!!");
+                        CegepControleur.Instance.ModifierEnseignant(paramNomCegep, paramNomDepartement, new EnseignantDTO(paramNoEmploye, edtNomEnseignantModifier.Text, edtPrenomEnseignantModifier.Text, edtAdresseEnseignantModifier.Text, edtVilleEnseignantModifier.Text, edtProvinceEnseignantModifier.Text, edtCodePostalEnseignantModifier.Text, edtTelephoneEnseignantModifier.Text, edtCourrielEnseignantModifier.Text));
+                        DialoguesUtils.AfficherToasts(this,"L'enseignant " + paramNoEmploye +" du programme "+ paramNomDepartement + " est modifié !!!");
                     }
                     catch (Exception ex)
                     {
@@ -124,7 +124,7 @@ namespace GestionCegepMobile.Vues
 
             paramNomCegep = Intent.GetStringExtra("paramNomCegep");
             paramNomDepartement = Intent.GetStringExtra("paramNomDepartement");
-            paramNoEmploye = Intent.GetIntExtra("paramNoEmploye", 0);
+            paramNoEmploye = Intent.GetIntExtra("paramNoEmploye", paramNoEmploye);
         }
 
         /// <summary>

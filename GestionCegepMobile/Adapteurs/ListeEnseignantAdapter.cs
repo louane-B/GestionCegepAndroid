@@ -38,7 +38,7 @@ namespace GestionCegepMobile.Adapteurs
                     context.LayoutInflater.Inflate(
                         Resource.Layout.ListeEnseignantItem, parent, false)) as LinearLayout;
 
-            view.FindViewById<TextView>(Resource.Id.tvInfoEnseignant).Text = listeEnseignant[position].Nom;
+            view.FindViewById<TextView>(Resource.Id.tvInfoEnseignant).Text = listeEnseignant[position].Nom + " " + listeEnseignant[position].Prenom;
 
             return view;
         }
