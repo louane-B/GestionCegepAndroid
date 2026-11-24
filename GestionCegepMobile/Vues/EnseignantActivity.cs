@@ -1,4 +1,5 @@
-﻿using GestionCegepMobile.Adapteurs;
+﻿using Android.Content;
+using GestionCegepMobile.Adapteurs;
 using GestionCegepMobile.Controleurs;
 using GestionCegepMobile.DTOs;
 using GestionCegepMobile.Utils;
@@ -49,8 +50,12 @@ namespace GestionCegepMobile.Vues
             listViewEnseignant = FindViewById<ListView>(Resource.Id.listViewEnseignant);
             listViewEnseignant.ItemClick += (sender, e) =>
             {
-               
-            }
+                Intent activiteEnseignantDetails = new Intent(this, typeof(EnseignantDetailsActivity));
+                activiteEnseignantDetails.PutExtra("paramNomCegep", paramNomCegep);
+                activiteEnseignantDetails.PutExtra("paramNomDepartement", paramNomDepartement);
+                activiteEnseignantDetails.PutExtra("paramNoEmployer", listeEnseignant[e.Position].NoEmploye);
+                StartActivity(activiteEnseignantDetails);
+            };
 
             btnAjouterEnseignant = FindViewById<Button>(Resource.Id.btnAjouter);
             btnAjouterEnseignant.Click += delegate
