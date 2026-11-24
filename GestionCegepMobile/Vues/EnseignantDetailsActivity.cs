@@ -1,5 +1,7 @@
-﻿using GestionCegepMobile.Controleurs;
+﻿using Android.Views;
+using GestionCegepMobile.Controleurs;
 using GestionCegepMobile.DTOs;
+using GestionCegepMobile.Utils;
 
 namespace GestionCegepMobile.Vues
 {
@@ -70,6 +72,46 @@ namespace GestionCegepMobile.Vues
             {
                 Finish();
             }
+        }
+
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.Enseignant_ActivityMenu, menu);
+            return base.OnCreateOptionsMenu(menu);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+
+                case Resource.Id.Supprimer:
+                    try
+                    {
+                        DialoguesUtils.AfficherDialogueQuestionOuiNon(this, "Suppression", "Voulez-vous vraiment supprimer l'enseignant ?", (oui) =>
+                        {
+                            if (oui)
+                            {
+                                CegepControleur.Instance.SupprimerEnseignant(paramNomCegep, paramNomDepartement, new EnseignantDTO(paramNoEmploye, "", "", "", "", "", "", "", ""));
+                                Finish();
+                            }
+                        });
+                    }
+                    catch (Exception ex)
+                    {
+                        DialoguesUtils.AfficherMessageOK(this, "Erreur", ex.Message);
+                    }
+                    break;
+
+                case Resource.Id.Retour:
+                    Finish();
+                    break;
+
+                case Resource.Id.Quitter:
+                    Finish();
+                    break;
+            }
+            return base.OnOptionsItemSelected(item);
         }
     }
 }

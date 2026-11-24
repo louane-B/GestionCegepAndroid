@@ -3,4 +3,5 @@
 	<item android:id="@+id/Modifier" android:title="Modifier"/>
 	<item android:id="@+id/Supprimer" android:title="Supprimer"/>
 	<item android:id="@+id/Retour" android:title="Retour"/>
+	<item android:id="@+id/Quitter" android:title="Quitter"/>
 </menu>
