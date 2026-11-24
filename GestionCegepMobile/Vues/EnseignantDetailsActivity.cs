@@ -11,7 +11,7 @@ namespace GestionCegepMobile.Vues
     {
         private string paramNomCegep;
         private string paramNomDepartement;
-        private int paramNoEmployer;
+        private int paramNoEmploye;
         private EnseignantDTO enseignant;
         private TextView lblNoEnseignant;
         private TextView lblNomEnseignant;
@@ -40,7 +40,7 @@ namespace GestionCegepMobile.Vues
 
             paramNomCegep = Intent.GetStringExtra("paramNomCegep");
             paramNomDepartement = Intent.GetStringExtra("paramNomDepartement");
-            paramNoEmployer = Intent.GetIntExtra("paramNoEmployer", 0);
+            paramNoEmploye = Intent.GetIntExtra("paramNoEmployer", 0);
         }
 
         protected override void OnResume()
@@ -54,8 +54,7 @@ namespace GestionCegepMobile.Vues
         {
             try
             {
-                EnseignantDTO enseignantDTO = new EnseignantDTO(paramNoEmployer, "", "", "", "", "", "", "", "");
-                enseignant = CegepControleur.Instance.ObtenirEnseignant(paramNomCegep, paramNomDepartement, enseignantDTO);
+                enseignant = CegepControleur.Instance.ObtenirEnseignant(paramNomCegep, paramNomDepartement, new EnseignantDTO(paramNoEmploye, "", "", "", "", "", "", "", ""));
 
                 lblNoEnseignant.Text = enseignant.NoEmploye.ToString();
                 lblNomEnseignant.Text = enseignant.Nom;

@@ -54,7 +54,7 @@ namespace GestionCegepMobile.Vues
                 Intent activiteEnseignantDetails = new Intent(this, typeof(EnseignantDetailsActivity));
                 activiteEnseignantDetails.PutExtra("paramNomCegep", paramNomCegep);
                 activiteEnseignantDetails.PutExtra("paramNomDepartement", paramNomDepartement);
-                activiteEnseignantDetails.PutExtra("paramNoEmployer", listeEnseignant[e.Position].NoEmploye);
+                activiteEnseignantDetails.PutExtra("paramNoEmploye", listeEnseignant[e.Position].NoEmploye);
                 StartActivity(activiteEnseignantDetails);
             };
 
@@ -115,6 +115,10 @@ namespace GestionCegepMobile.Vues
             switch (item.ItemId)
             {
                 case Resource.Id.Retour:
+                    Finish();
+                    break;
+
+                case Resource.Id.Quitter:
                     Finish();
                     break;
             }
