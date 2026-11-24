@@ -1,6 +1,8 @@
-﻿using Android.Views;
+﻿using Android.Content;
+using Android.Views;
 using GestionCegepMobile.Controleurs;
 using GestionCegepMobile.DTOs;
+using GestionCegepMobile.Modeles;
 using GestionCegepMobile.Utils;
 
 namespace GestionCegepMobile.Vues
@@ -84,6 +86,14 @@ namespace GestionCegepMobile.Vues
         {
             switch (item.ItemId)
             {
+
+                case Resource.Id.Modifier:
+                    Intent activiteEnseignantModifier = new Intent(this, typeof(CegepModifierActivity));
+                    activiteEnseignantModifier.PutExtra("paramNomCegep", paramNomCegep);
+                    activiteEnseignantModifier.PutExtra("paramNomDepartement", paramNomDepartement);
+                    activiteEnseignantModifier.PutExtra("paramNoEmploye", paramNoEmploye);
+                    StartActivity(activiteEnseignantModifier);
+                    break;
 
                 case Resource.Id.Supprimer:
                     try
