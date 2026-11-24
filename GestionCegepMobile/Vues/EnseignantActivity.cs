@@ -49,6 +49,7 @@ namespace GestionCegepMobile.Vues
             listViewEnseignant = FindViewById<ListView>(Resource.Id.listViewEnseignant);
             listViewEnseignant.ItemClick += (sender, e) =>
             {
+               
             }
 
             btnAjouterEnseignant = FindViewById<Button>(Resource.Id.btnAjouter);

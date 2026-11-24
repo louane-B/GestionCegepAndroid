@@ -26,6 +26,7 @@ namespace GestionCegepMobile.DAOs
         protected Repository()
         {
             //connexion = new SqlConnection("Server = tcp:kevthecg.database.windows.net, 1433; Initial Catalog = Cegep; Persist Security Info = False; User ID = kevthecg; Password =UJk565fSdhd8S7; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;");
+            //connexion = new SqlConnection(@"Server=tcp:192.168.43.171,1433;Initial Catalog=CegepExamen; User ID=louane;Password=h@riboRDL2025;Encrypt=False;TrustServerCertificate=True");
             connexion = new SqlConnection(@"Server=tcp:192.168.43.171,1433;Initial Catalog=CegepExamen; User ID=louane;Password=h@riboRDL2025;Encrypt=False;TrustServerCertificate=True");
         }
 
