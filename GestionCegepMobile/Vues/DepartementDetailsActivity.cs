@@ -62,6 +62,13 @@ namespace GestionCegepMobile.Vues
         {
             switch (item.ItemId)
             {
+                case Resource.Id.Enseignants:
+                    Intent activiteEnseignant = new Intent(this, typeof(EnseignantActivity));
+                    activiteEnseignant.PutExtra("paramNomCegep", paramNomCegep);
+                    activiteEnseignant.PutExtra("paramNomDepartement", paramNomDepartement);
+                    StartActivity(activiteEnseignant);
+                    break;
+
                 case Resource.Id.Supprimer:
                     try
                     {
