@@ -1,4 +1,5 @@
 ﻿using Android.Content;
+using Android.Views;
 using GestionCegepMobile.Adapteurs;
 using GestionCegepMobile.Controleurs;
 using GestionCegepMobile.DTOs;
@@ -101,6 +102,23 @@ namespace GestionCegepMobile.Vues
             {
                 DialoguesUtils.AfficherMessageOK(this, "Erreur", ex.Message);
             }
+        }
+
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.Enseignant_ActivityMenu, menu);
+            return base.OnCreateOptionsMenu(menu);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Resource.Id.Retour:
+                    Finish();
+                    break;
+            }
+            return base.OnOptionsItemSelected(item);
         }
     }
 }
